@@ -1,0 +1,218 @@
+* {
+    margin:  0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+body {  
+    background-image:linear-gradient(to right, #da7422,  #cf723b,
+    #d37741, #ca8151, #ce8951, #d88d4f, #d19257, #ce8d62);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+
+
+p, b {
+    font-family: 'Caladea', serif;
+    text-align: justify;
+}
+
+h1, h2, h3 , h4 {
+    font-family: 'Times New Roman', Times, serif;
+}
+h2 {
+    color: #b40000;
+    margin-bottom: 20px;
+    text-align: left;
+    font-size: 40px;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+h3 {
+    color:rgb(124, 25, 0);
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+h4 {
+    color: #f5f5dc;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    text-align: left;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    font-size: 40px;
+    font-weight: normal;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+li {
+    margin: 0 0 3px 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+}
+
+tr{
+    text-align: left;
+}
+
+th{
+    padding-left: 10px;
+    padding-right: 10px;
+    text-justify: auto;
+    background-color: rgb(255, 255, 255);  
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+    color: black;
+    border-bottom: 1px solid blue;
+}
+
+table {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+}
+
+.link_tabla {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-style: normal;
+}
+
+.indice_barra {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    margin: 0;
+    font-style: normal;
+}
+
+.enlace {
+    display: inline-block;
+    background-color: #ff00aa;
+    border-radius: 15px;
+    padding: 5px;
+    margin-top: 15px;
+    box-shadow: 0px 1px 5px rgb(255, 230, 0);
+}
+
+
+
+.Encabezado-Principal {
+    background-color:#c03600;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: left;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 1);
+    font-family: Garamond, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    border: 5px solid black;
+    height: 100px;
+}
+.texto-cambiado{
+    color: rgb(0, 0, 0);
+}
+
+.Seccion-A {
+    float: left;
+    display: block;
+    padding: 30px;
+    box-shadow: 0px 1px 15px rgb(0, 0, 0);
+    background: rgb(255, 181, 139);
+    color: rgb(0, 0, 0);
+    width: 80%;
+    height: 2300px;
+}   
+.Seccion-B {
+    float: left;
+    display: block;
+    padding: 15px;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 1);
+    background: rgb(143, 52, 0);
+    color: black;
+    width: 20%;
+    height: 2300px;
+}
+
+.Seccion-C {
+    float: left;
+    display: block;
+    padding: 15px;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 1);
+    background: #4d1803;
+    font-family: Garamond, sans-serif;
+    color: black;
+    width: 100%;
+    height: 150%;
+}
+
+
+
+.titulo {
+    font-size: 80px;
+    text-align: center;
+    margin: 20px;
+    color: white;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 1);
+    font-family: 'Oswald', sans-serif;
+
+}
+
+.navegacion {
+    z-index: 1;
+    display: flex;
+    position: fixed;
+    justify-content: flex-end;
+    right: 0;
+    background-color: #001C2C;
+    height: 40px;
+    top: 10px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+}
+
+.index {
+    background-color: #001C2C;
+    margin-top: 10px;
+    height: 40px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+    text-align: center;
+    padding: 10px;
+    list-style-position: outside;
+}
+
+
+
+
+
+
+
+
+.texto-cambiado{
+    color: rgb(0, 0, 0);
+}
+
+
+.primera_fila_tabla {
+    text-align: center;
+    background-color: #191970;  
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 1);
+    color: white;
+    border-bottom: 1px solid blue;
+}
+
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+  }
+

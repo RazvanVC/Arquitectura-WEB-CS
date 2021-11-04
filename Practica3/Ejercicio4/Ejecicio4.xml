@@ -1,0 +1,40 @@
+<xml>
+    <Carta id="CartaPrincipal">
+        <Producto id="1">
+            <Nombre> Puré de Patata </Nombre>
+            <Precio> 5.95€ </Precio>
+            <Descripcion> Puré de patata roja con picatostes </Descripcion>
+            <Calorias> 350 </Calorias>
+        </Producto>
+        <Producto id="2">
+            <Nombre> Macarrones con queso </Nombre>
+            <Precio> 4,95€ </Precio>
+            <Descripcion> Macarrones con queso parmesano </Descripcion>
+            <Calorias> 450 </Calorias>
+        </Producto>
+        <Producto id="3">
+            <Nombre> Garbanzos con chorizo </Nombre>
+            <Precio> 6,95€ </Precio>
+            <Descripcion> Garbanzos cocidos con chorizo de Atienza </Descripcion>
+            <Calorias> 950 </Calorias>
+        </Producto>
+        <Producto id="4">
+            <Nombre> Judías verdes </Nombre>
+            <Precio> 3,95€ </Precio>
+            <Descripcion> Judías verdes cocidas de la variedad “Blanca de España”  </Descripcion>
+            <Calorias> 350 </Calorias>
+        </Producto>
+        <Producto id="5">
+            <Nombre> Sopa de pescado </Nombre>
+            <Precio> 5,95€ </Precio>
+            <Descripcion> Sopa de morralla de pescado </Descripcion>
+            <Calorias> 350 </Calorias>
+        </Producto>
+        <Producto id="6">
+            <Nombre> Merluza a la plancha </Nombre>
+            <Precio> 6,95€ </Precio>
+            <Descripcion> Rodaja de merluza a la plancha con aceita de oliva </Descripcion>
+            <Calorias> 400 </Calorias>
+        </Producto>
+    </Carta>
+</xml>
