@@ -1,15 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8">
-        <title>Practica 4</title>
-        <link rel="stylesheet" href="css/style.css">
 
-    </head>
+<head>
+    <meta charset="utf-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    <style>
+        table,
+        th,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
 
-    <body>
-        <div class="container">
-            <h1>Practica 4</h1>
-        </div>
-    </body>
+<body>
+    <header class="encabezado" id="0">
+        <h1>Pagina Principal para la practica 4</h1>
+    </header>
+    <nav>
+        <ul>
+            <li class="index"><a href="#1" class="indice_barra">1. Ejercicio Javascript</a></li>
+            <li class="index"><a href="#2" class="indice_barra">2. Ejercicios con lenguaje HTML5</a></li>
+            <li class="index"><a href="#3" class="indice_barra">3. Extensión Ejercicio Javascript</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <br />
+        <section class="seccion" id="1">
+            <h2>Pagina de Música</h2>
+            <h3>Descripcion</h3>
+            <p> Recopilación de musica para escuchar a lo largo del dia con varias recomendaciones</p>
+            <h3>¿Que podemos esperar encontarnos?</h3>
+            <p> En esta primera página, nos encontramos un “blog” sobre varias bandas de música y un pequeño formulario
+                para recomendar al autor otras bandas para, en un futuro, incluir con el resto. </p>
+            <h3>Portada</h3>
+            <p>Tenemos una vista previa de la página en la siguiente imagen, podemos ver que se trata de una página
+                atractiva y con ganas de crecimiento</p>
+            <br>
+            <img class="center" alt="Imagen de la pagina de musica" src="./src/FrontMusica.png">
+            <br>
+            <form action="./PaginaBandas.html">
+                <input class="myButton" type="submit" value="View Page" />
+            </form>
+        </section>
+        <section class="seccion" id="2">
+            <h2>Ejercicios con lenguaje HTML5</h2>
+            <h3>Descripcion</h3>
+            <p> Se presentan algunos ejercicios en los que se ve la aplicacion directa del lenguaje HTML5</p>
+            <h3>Ejercicio 1: Comprobación de funcionalidades en navegadores</h3>
+            <p>El objetivo del ejercicio es realizar una tabla comparativa de las características de HTML5 que
+                aceptan y no aceptan diferentes navegadores y versiones de éstos.</p>
+            <br>
+            <form action="./">
+                <input class="myButton" type="submit" value="View Page" />
+            </form>
+            <br>
+            <h3>Ejercicio 2: Creacion de pagina con elementos multimedia</h3>
+            <p>El objetivo de este ejercicio práctico es el diseño y programación de una página web en la que
+                se muestren los gustos cinematográficos del alumno, incluyendo 3 elementos multimedia</p>
+            <br>
+            <form action="./Ejercicio3/Ejercicio32/BalanceNotSymmetry.html">
+                <input class="myButton" type="submit" value="Go to page" />
+            </form>
+            <br>
+            <h3>Ejercicio 3: Creación de página con formulario para su auto-validación</h3>
+            <p>El objetivo del ejercicio es diseñar y programar una página web en HTML5 en la cual se
+                solicite y valide un formulario con los campos de registro típicos para que un usuario pueda comprar
+                una entrada de cine</p>
+            <br>
+            <form action="./Ejercicio3/Ejercicio33/Formulario.html">
+                <input class="myButton" type="submit" value="Go to page" />
+            </form>
+            <br>
+            <h3>Ejercicio 4: Ejercicio práctico de creación de páginas con otras funcionalidades</h3>
+            <p> HTML5 permite trabajar con sockets, eventos Drag & drop, trabajar off-line,
+                geoposicionamiento, bases de datos basadas en SQLite, etc. Diseñar y programar al menos 4 páginas
+                web que utilice alguna de las funcionalidades anteriores.</p>
+            <br>
+            <form action="./Ejercicio4/Ejercicio34/Pagina1.html">
+                <input class="myButton" type="submit" value="Go to page" />
+            </form>
+
+        </section>
+        <section class="seccion" id="3">
+            <h2>Pagina de Animación</h2>
+            <h3>Descripcion</h3>
+            <p> Recopilacion de proximos animes que los administradores tienen muchas ganas de ellos</p>
+            <h3>¿Que podemos esperar encontarnos?</h3>
+            <p> En esta tercera página, encontramos información sobre las series de animación japonesa que se
+                recomiendan ver esta temporada de otoño con un formulario para recomendar al autor cualquier otro anime
+                que ver.</p>
+            <h3>Portada</h3>
+            <p>Tenemos una vista previa de la página en la siguiente imagen, podemos ver que se trata de una página
+                atractiva y con ganas de crecimiento</p>
+            <br>
+            <img class="center" alt="Imagen de la pagina de Animación" src="./src/FrontAnime.png">
+            <br>
+            <form action="./PaginaAnime.html">
+                <input class="myButton" type="submit" value="View Page" />
+            </form>
+        </section>
+
+    </main>
+</body>
+
 </html>
