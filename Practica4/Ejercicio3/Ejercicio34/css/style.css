@@ -18,6 +18,12 @@ p, b {
 h1, h2, h3 , h4 {
     font-family: 'Times New Roman', Times, serif;
 }
+h1 {
+    color:rgb(25, 0, 255);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align:center;
+}
 
 h2 {
     color: #b40000;
@@ -70,7 +76,14 @@ table {
     padding-bottom: 10px;
     width: 100%;
 }
-
+#content {
+    width: 100%;
+    height: 200px;
+    display: -webkit-flex;
+    -webkit-flex-direction: row;
+    display: flex;
+    flex-direction: row;
+  }
 .link_tabla {
     text-decoration: none;
     color: rgb(0, 0, 0);
@@ -182,4 +195,17 @@ table {
 .myButton:active {
     position:relative;
     top:1px;
+}
+
+.map {
+    border:"5";
+    overflow:"no";
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.backgroundimage {
+    background-image: url("../src/background.png");
 }

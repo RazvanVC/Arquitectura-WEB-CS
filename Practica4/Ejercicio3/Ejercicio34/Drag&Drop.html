@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Drag&Drop</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        table,
+        th,
+        th {
+            border: 1px solid black;
+        }
+
+        #dropBox {
+            width: 12.5%;
+            height: 20%;
+            min-height: 200px;
+            text-align: center;
+            border: 1px dashed rgb(116, 114, 114);
+        }
+
+        #dropBox img {
+            margin:auto;
+            margin-top: -10px;
+        }
+    </style>
+    <script>
+        function dragStart(e) {
+            // Sets the operation allowed for a drag source
+            e.dataTransfer.effectAllowed = "move";
+    
+            // Sets the value and type of the dragged data
+            e.dataTransfer.setData("Text", e.target.getAttribute("id"));
+        }
+        function dragOver(e) {
+            // Prevent the browser default handling of the data
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        function drop(e) {
+            // Cancel this event for everyone else
+            e.stopPropagation();
+            e.preventDefault();
+    
+            // Retrieve the dragged data by type
+            var data = e.dataTransfer.getData("Text");
+    
+            // Append image to the drop box
+            e.target.appendChild(document.getElementById(data));
+        }
+    </script>
+    
+</head>
+
+<body>
+    <h1>Mueve a Mario por la pantalla!</h1>
+    <h2>Prueba a mover a Mario por la pantalla para ver como funciona el Drag&Drop</h2>
+    <section class="seccion">
+        <div class="backgroundimage" width="100%" height="100%">
+            <div id="content">
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                    
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+            </div>
+            
+            <div id="content">
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                
+            </div>
+    
+            <div id="content">
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                    <img src="src/Mario.png" id="dragA" draggable="true" ondragstart="dragStart(event);" width="120" height="120"
+            alt="Mario">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+                <div id="dropBox" ondragover="dragOver(event);" ondrop="drop(event);">
+                </div>
+            </div>
+
+        </div>
+    </section>
+    
+    
+    <br />
+    <br />
+    
+</body>
+
+</html>

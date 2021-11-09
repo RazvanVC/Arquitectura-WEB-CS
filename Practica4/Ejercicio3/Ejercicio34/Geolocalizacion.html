@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>PaginaSockets</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        table,
+        th,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="encabezado" id="0">
+        <h1>Geolocalizacion</h1>
+    </header>
+    <main>
+        <section class="seccion" id="1">
+            <br />
+            <h2>¿Que es esto?</h2>
+            <p style="text-align: center;"> En este página comprobaremos la función de Geolocalizacion de html5.<br>
+                <br>
+            </p>
+            <a href="#" id="get_localizacion" style="text-align:center;">
+                <h3>Click para tener tu localización</h3>
+            </a>
+            <div id="mapa" class="center">
+                <iframe class="map" id="google_map" width="600" height="600" src="https://www.google.com/maps/@40.4761259,-4.0533303,9.23z">
+                </iframe>
+            </div>
+            <script>
+                var c = function (pos) {
+                    var lat = pos.coords.latitude,
+                        long = pos.coords.longitude,
+                        coordenadas = lat + ',' + long;
+                    document.getElementById('google_map').setAttribute('src', 'https://maps.google.es/?q=' + coordenadas + '&output=embed');
+                }
+                document.getElementById('get_localizacion').onclick = function () {
+                    navigator.geolocation.getCurrentPosition(c);
+                    return false
+                }
+            </script>
+            <form action="../../index.html">
+                <input class="myButton" type="submit" value="Volver" />
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
