@@ -10,7 +10,11 @@
     <script src="main2.js"></script>
 </head>
 
+
+
+
 <body>
+    
     <div>
         <table>
             <tr>
@@ -32,103 +36,176 @@
                         <span>Postres</span>
                     </label>
                 </td>
+
                 <td>
-                    <select id="combobox">
-                        <option value="0">Mesa 1</option>
-                        <option value="1">Mesa 2</option>
-                        <option value="2">Mesa 3</option>
-                        <option value="3">Mesa 4</option>
-                        <option value="4">Mesa 5</option>
+                    <select  id="combobox">
+                        <option value="1">Mesa 1</option>
+                        <option value="2">Mesa 2</option>
+                        <option value="3">Mesa 3</option>
+                        <option value="4">Mesa 4</option>
+                        <option value="5">Mesa 5</option>
                     </select>
                 </td>
             </tr>
         </table>
     </div>
+
+<ul hidden class = 'p1'>
     <div>
         <table id="platosPrincipales">
+            <tr> 
+                <td>ID</td>
+                <td>Nombre</td>
+                <td>Precio</td>
+                <td>Añadir</td>
+            </tr>
             <tr>
-                <td>
-                    ID
-                </td>
-                <td>
-                    Nombre
-                </td>
-                <td>
-                    Precio
-                </td>
-                <td>
-                    Añadir
+                <td>1</td>
+                <td>Pollo a la brasa</td>
+                <td>8</td>
+                <td> <button id="btn-add1">Add</button> </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Ensalada de frutas</td>
+                <td>7</td>
+                <td> <button id="btn-add2">Add</button> </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Ensalada de verduras</td>
+                <td>6</td>
+                <td> <button id="btn-add3">Add</button> </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Pescado con patatas</td>
+                <td>9</td>
+                <td><button id="btn-add4">Add</button>
                 </td>
             </tr>
             <tr>
-                <td>
-                    1
-                </td>
-                <td>
-                    Pollo a la brasa
-                </td>
-                <td>
-                    10
-                </td>
-                <td>
-                    <button id="btn-add">Add</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    2
-                </td>
-                <td>
-                    Ensalada de frutas
-                </td>
-                <td>
-                    10
-                </td>
-                <td>
-                    <button id="btn-add">Add</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    3
-                </td>
-                <td>
-                    Ensalada de verduras
-                </td>
-                <td>
-                    10
-                </td>
-                <td>
-                    <button id="btn-add">Add</button>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    4
-                </td>
-                <td>
-                    Ensalada de pescado
-                </td>
-                <td>
-                    10
-                </td>
-                <td>
-                    <button id="btn-add">Add</button>
+                <td>5</td>
+                <td>Espaquetis boloñesa</td>
+                <td>7</td>
+                <td><button id="btn-add5">Add</button>
                 </td>
             </tr>
         </table>
     </div>
+</ul>
+
+<ul hidden class = 'p2'>
+    <div>
+        <table id="platosSecundarios">
+            <tr> 
+                <td>ID</td>
+                <td>Nombre</td>
+                <td>Precio</td>
+                <td>Añadir</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Solomillo</td>
+                <td>12</td>
+                <td> <button id="btn-add6">Add</button> </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Albondigas</td>
+                <td>9</td>
+                <td> <button id="btn-add7">Add</button> </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Dorada con patatas</td>
+                <td>11</td>
+                <td> <button id="btn-add8">Add</button> </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Croquetas</td>
+                <td>10</td>
+                <td><button id="btn-add9">Add</button>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Mejillones</td>
+                <td>8</td>
+                <td><button id="btn-add10">Add</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</ul>
+
+<ul hidden class = 'p3'>
+    <div>
+        <table id="postres">
+            <tr> 
+                <td>ID</td>
+                <td>Nombre</td>
+                <td>Precio</td>
+                <td>Añadir</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>Arroz con leche</td>
+                <td>2</td>
+                <td> <button id="btn-add11">Add</button> </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Fruta</td>
+                <td>1</td>
+                <td> <button id="btn-add12">Add</button> </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Tiramisu</td>
+                <td>3</td>
+                <td> <button id="btn-add13">Add</button> </td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Flan de huevo</td>
+                <td>2</td>
+                <td><button id="btn-add14">Add</button>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Bizcocho de limon</td>
+                <td>2</td>
+                <td><button id="btn-add15">Add</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</ul>
+<input type="checkbox" id="conCopa">con copa</input>
+<input type="checkbox" id="conCafe">con cafe</input>
+<input type="text" id="precio">precio a pagar</input>
     <div>
         <!-- List in a textarea where the plates are shown-->
         <p> Lista de Platos</p>
-        <li id="listaPlatos"></li>
-        <button id="btn-add">Añadir</button>
+        <li  id="listaPlatos1"></li>
     </div>
     <div>
-        <!-- List in a textarea where the plates are shown-->
-        <textarea id="lista2" rows="10" cols="1"></textarea>
-        <button id="btn-remove">Remove</button>
+        <li hidden id="listaPlatos2"></li>
     </div>
+    <div>
+        <li hidden id="listaPlatos3"></li>
+    </div>
+    <div>
+        <li hidden id="listaPlatos4"></li>
+    </div>
+    <div>
+        <li hidden id="listaPlatos5"></li>
+    </div>
+    <button id ="pagado"type="submit">pagado</button>
+
     
 </body>
 
