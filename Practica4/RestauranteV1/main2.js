@@ -127,29 +127,31 @@ $(document).ready(function () {
     $('#btn-add1').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>pollo a la brasa</li>'); 
-        document.getElementById("precio").value = totalPorMesa(10);
+        document.getElementById("precio").value = totalPorMesa(8);
 
     });
     $('#btn-add2').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>ensalada de frutas</li>');       
-        document.getElementById("precio").value = totalPorMesa(8);
+        document.getElementById("precio").value = totalPorMesa(7);
 
     });
     $('#btn-add3').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>ensalada de verduras</li>');
-        
+        document.getElementById("precio").value = totalPorMesa(6);
 
     });
     $('#btn-add4').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>pescado con patatas</li>');
+        document.getElementById("precio").value = totalPorMesa(9);
         
     });
     $('#btn-add5').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>espaguettis a la boloñesa</li>');
+        document.getElementById("precio").value = totalPorMesa(7);
         
     });
 
@@ -158,29 +160,34 @@ $(document).ready(function () {
     $('#btn-add6').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>solomillo</li>');
+        document.getElementById("precio").value = totalPorMesa(12);
         
 
     });
     $('#btn-add7').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>albondigas</li>');
+        document.getElementById("precio").value = totalPorMesa(9);
         
 
     });
     $('#btn-add8').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>dorada con patatas</li>');
+        document.getElementById("precio").value = totalPorMesa(11);
         
 
     });
     $('#btn-add9').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>croquetas</li>');
+        document.getElementById("precio").value = totalPorMesa(10);
         
     });
     $('#btn-add10').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>mejillones</li>');
+        document.getElementById("precio").value = totalPorMesa(8);
         
     });
 
@@ -189,29 +196,34 @@ $(document).ready(function () {
     $('#btn-add11').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>arroz con leche</li>');
+        document.getElementById("precio").value = totalPorMesa(2);
         
 
     });
     $('#btn-add12').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>fruta</li>');
+        document.getElementById("precio").value = totalPorMesa(1);
         
 
     });
     $('#btn-add13').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>tiramisu</li>');
+        document.getElementById("precio").value = totalPorMesa(3);
         
 
     });
     $('#btn-add14').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>flan de huevo</li>');
+        document.getElementById("precio").value = totalPorMesa(2);
         
     });
     $('#btn-add15').click(function () {
         //Get the value from the table
         $(listaPorMesa()).append('<li>bizcocho de limon</li>');
+        document.getElementById("precio").value = totalPorMesa(2);
         
     });
 
