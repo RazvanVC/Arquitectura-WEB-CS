@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <title>Web Storage</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script>
+        function clickCounter() {
+            if (typeof (Storage) !== "undefined") {
+                if (localStorage.clickcount) {
+                    localStorage.clickcount = Number(localStorage.clickcount) + 1;
+                } else {
+                    localStorage.clickcount = 1;
+                }
+                
+                document.getElementById("result").innerHTML="Has clickado la galleta un total de " + localStorage.clickcount + " veces.";
+                
+            } else {
+                document.getElementById("result").innerHTML = "Este navegador no soporta web storage :(";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header class="encabezado" id="0">
+        <h1>Web Storage</h1>
+    </header>
+    <br />
+    <section class="seccion" id="2">
+
+        <h2>Haz click en la galleta!</h2>
+
+        <p style="text-align: center ;">Esta página almacena las veces que has hecho click sobre la galleta y las
+            almacena en un contador, pruebalo!</p>
+        </a>
+        <div>
+            <p><img class="center" onclick="clickCounter()" src="./src/Cookie.jpg"></p>
+            <div id="result"></div>
+            <p>Haz click en la galleta y mira como crece el número.</p>
+            <p>Puedes cerrar la página, y volver a clickar, y el contador seguirá por donde
+                lo has dejado, si no ves el número de clicks, vuelve a hacer click en la galleta.
+            </p>
+
+    </section>
+    <form action="../../index.html">
+        <input class="myButton" type="submit" value="Volver" />
+    </form>
+    </a>
+</body>
+
+</html>
