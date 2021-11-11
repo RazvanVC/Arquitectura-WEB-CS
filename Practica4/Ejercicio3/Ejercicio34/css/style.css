@@ -13,6 +13,12 @@ body {
 p, b {
     font-family: 'Caladea', serif;
     text-align: justify;
+    font-size: 20px;
+    color: #fff;
+    background-color: grey;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
 }
 
 h1, h2, h3 , h4 {
@@ -20,6 +26,13 @@ h1, h2, h3 , h4 {
 }
 h1 {
     color:rgb(25, 0, 255);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align:center;
+}
+
+.h1P {
+    color:rgb(255, 255, 255);
     margin-top: 20px;
     margin-bottom: 10px;
     text-align:center;
