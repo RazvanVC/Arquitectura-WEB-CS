@@ -1,0 +1,24 @@
+.body {  
+    background-image:linear-gradient(to right, #70fff8,  #e3ffff,
+    #b1ffec, #a4ffeb, #82ffee, #70fff8, #9eedf3, #70fff8);
+    font-family: 'Times New Roman', Times, serif;
+}
+
+        
+
+.Encabezado-Principal {
+    background-color:#006ac0;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    text-align: left;
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 1);
+    font-family: Garamond, sans-serif;
+    font-size: 55px;
+    font-weight: bold;
+    border: 5px solid black;
+    height: 100px;
+}
+
+.texto-cambiado{
+    color: rgb(0, 0, 0);
+}
