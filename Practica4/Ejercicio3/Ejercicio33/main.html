@@ -5,40 +5,112 @@
     <meta charset="utf-8">
     <title>Compra de entradas de cine</title>
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        table,
-        th,
-        th {
-            border: 1px solid black;
-        }
-    </style>
 </head>
 
 <body>
-    <section class="form-register">
-        <h4>Formulario Registro</h4>
-
-    </section>
-
-</body>
-
-</html>
-
-<body>
     <header class="encabezado" id="0">
-        <h1>Balance Not Symmetry</h1>
+        <h1>Formulario de compra de entrada</h1>
     </header>
     <main>
-        <section class="form-register" id="1">
-            <h4>Formulario de </h4>
-            <form action="">
-                <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre">
-                <input class="controls" type="text" name="apellidos" id="apellidos" placeholder="Ingrese su Apellido">
-                <input class="controls" type="email" name="correo" id="correo" placeholder="Ingrese su Correo">
-                <input class="controls" type="password" name="correo" id="correo" placeholder="Ingrese su Contraseña">
-                <p>Estoy de acuerdo con <a href="#">Terminos y Condiciones</a></p>
-                <input class="botons" type="submit" value="Comprar">
-                
+        <section class="seccion" id="1">
+            <!--Formulario simple para la compra de entradas-->
+            <form onsubmit="alert('Pedido realizado con exito')">
+                <fieldset>
+                    <legend>Datos del cliente</legend>
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <br>
+                        <input type="text" name="nombre" id="nombre" class="form-control" pattern="[A-Za-z]{3,32}"
+                            title="El nombre tiene que tener al menos 3 carácteres" placeholder="Nombre" required>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <br>
+                        <input type="text" name="apellidos" id="apellidos" class="form-control" pattern="[A-Za-z]{3,64}"
+                            title="Los apellidos tiene que tener al menos 3 carácteres" placeholder="Apellidos"
+                            required>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="edad">Edad</label>
+                        <br>
+                        <input type="number" name="edad" id="edad" class="form-control" min="18" placeholder="Edad"
+                            title="Debe poner un numero comprendido mayor que 18" required>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="dni">DNI</label>
+                        <br>
+                        <input type="text" name="dni" id="dni" class="form-control" pattern="[0-9]{8}[A-Z]{1}"
+                            placeholder="Introduzca su DNI" title="Debe poner 8 números y una letra" required>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="entradas">Entradas</label>
+                        <br>
+                        <select name="entradas" id="entradas" class="form-control" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                        </select>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="tarjeta">Tarjeta</label>
+                        <br>
+                        <input id="tarjeta" type="tel" inputmode="numeric" pattern="[0-9\s]{19}" class="form-control
+                            autocomplete=" cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx" required>
+
+                        <br>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="cvc">CVC</label>
+                        <br>
+                        <input type="tel" inputmode="numeric" name="cvc" id="cvc" class="form-control"
+                            pattern="[0-9\s]{3}" maxlength="3" placeholder="xxx" required />
+                        <br>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <br>
+                        <input type="email" name="email" id="email" class="form-control"
+                            placeholder="[email]@[email].[com]" required>
+                        <br>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <br>
+                        <input type="tel" name="telefono" id="telefono" class="form-control" placeholder="123-456-789"
+                            pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" required>
+                        <br>
+                    </div>
+                    <br>
+                    <div>
+                        <input type="submit" value="Enviar" class="myButton"></input>
+                        <br>
+                    </div>
+                </fieldset>
+            </form>
+            <br />
+            <form action="../../index.html">
+                <input class="myButton" type="submit" value="Volver" />
             </form>
         </section>
     </main>
