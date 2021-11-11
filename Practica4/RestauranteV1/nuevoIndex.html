@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> PRACTICA 4</title>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main2.js"></script>
+</head>
+
+<body>
+    <h1> RESTAURANTE </h1>
+    <table>
+        <tr>
+            <td>
+                <form name="form1">
+                    <input type="radio" id="radio-1" name="platos" value="platos1" checked>Primeros platos <br>
+                    <input type="radio" id="radio-2" name="platos" value="platos2" >Segundos platos <br>
+                    <input type="radio" id="radio-3" name="platos" value="postres" >Postres <br>
+                </form>
+            </td>
+            <td>
+                <select id="combobox">
+                    <option value="1">Mesa 1</option>
+                    <option value="2">Mesa 2</option>
+                    <option value="3">Mesa 3</option>
+                    <option value="4">Mesa 4</option>
+                    <option value="5">Mesa 5</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <form name="form2">
+                    <fieldset>
+                        <legend>Primeros Platos</legend>
+                        <select multiple id="platos1">
+
+                            <option label="Puré de patata" value="4" ondblclick="annadir(label, value)">Puré de patata
+                            </option>
+                            <option label="Macarrones con queso" value="3" ondblclick="annadir(label, value)">Macarrones
+                                con queso</option>
+                            <option label="Garbanzos con chorizo" value="4" ondblclick="annadir(label, value)">Garbanzos
+                                con chorizo</option>
+                            <option label="Judías verdes" value="3" ondblclick="annadir(label, value)">Judías verdes
+                            </option>
+                            <option label="Sopa de pescado" value="3" ondblclick="annadir(label, value)">Sopa de pescado
+                            </option>
+
+
+                        </select>
+                    </fieldset>
+                </form>
+                <form id="form3">
+                    <fieldset hidden id="platos2">
+                        <legend>Segundos Platos</legend>
+                        <select multiple >
+
+                            <option label="solomillo" value="4" ondblclick="annadir(label, value)">Puré de patata
+                            </option>
+                            <option label="albondigas" value="3" ondblclick="annadir(label, value)">Macarrones con queso
+                            </option>
+                            <option label="dorada con patatas" value="4" ondblclick="annadir(label, value)">Garbanzos
+                                con chorizo</option>
+                            <option label="croquetas" value="3" ondblclick="annadir(label, value)">Judías verdes
+                            </option>
+                            <option label="mejillones" value="3" ondblclick="annadir(label, value)">Sopa de pescado
+                            </option>
+
+
+
+                        </select>
+                    </fieldset>
+                </form>
+                <form id="form4">
+                    <fieldset hidden id="platos3">
+                        <legend>Postres</legend>
+                        <select  multiple >
+
+                            <option label="arroz con leche" value="4" ondblclick="annadir(label, value)">Puré de patata
+                            </option>
+                            <option label="fruta" value="3" ondblclick="annadir(label, value)">Macarrones con queso
+                            </option>
+                            <option label="tiramisu" value="4" ondblclick="annadir(label, value)">Garbanzos con chorizo
+                            </option>
+                            <option label="flan de huevo" value="3" ondblclick="annadir(label, value)">Judías verdes
+                            </option>
+                            <option label="bizcocho de limon" value="3" ondblclick="annadir(label, value)">Sopa de
+                                pescado
+                            </option>
+                        </select>
+                    </fieldset>
+                </form>
+            </td>
+            <td>
+                <form id="listaPlatos1">
+                    <fieldset>
+                        <legend>Lista de Pedidos</legend>
+                        <select multiple id="listaPlatos1">
+
+                        </select>
+                    </fieldset>
+
+                </form>
+                <form hidden id="listaPlatos2">
+                    <fieldset>
+                        <legend>Lista de Pedidos</legend>
+                        <select multiple id="listaPlatos2">
+
+                        </select>
+                    </fieldset>
+
+                </form>
+                <form hidden id="listaPlatos3">
+                    <fieldset>
+                        <legend>Lista de Pedidos</legend>
+                        <select multiple id="listaPlatos2">
+
+                        </select>
+                    </fieldset>
+
+                </form>
+                <form hidden id="listaPlatos4">
+                    <fieldset>
+                        <legend>Lista de Pedidos</legend>
+                        <select multiple id="listaPlatos2">
+
+                        </select>
+                    </fieldset>
+
+                </form>
+                <form hidden id="listaPlatos5">
+                    <fieldset>
+                        <legend>Lista de Pedidos</legend>
+                        <select multiple id="listaPlatos2">
+
+                        </select>
+                    </fieldset>
+
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <form>
+        <select multiple id="cuentaM1" style="display: none">
+        </select>
+    </form>
+    <form>
+        <select multiple id="cuentaM2" style="display: none">
+        </select>
+    </form>
+    <form>
+        <select multiple id="cuentaM3" style="display: none">
+        </select>
+    </form>
+    <form>
+        <select multiple id="cuentaM4" style="display: none">
+        </select>
+    </form>
+    <form>
+        <select multiple id="cuentaM5" style="display: none">
+        </select>
+    </form>
+    <form name="form6">
+        <input type="checkbox" name="cafe" value="1" onclick="annadir(name, value)">con café <br>
+        <input type="checkbox" name="copa" value="5" onclick="annadir(name, value)">con copa <br>
+    </form>
+
+    <form name="total">
+        <label>Total: </label>
+        <input type="number" id="pagar" min="0" max="100" disabled></input>€
+        <br><br>
+        <input type="submit" value="Pagado" onclick="pagado()">
+    </form>
+
+</body>
+
+</html>
