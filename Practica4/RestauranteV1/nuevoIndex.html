@@ -7,7 +7,7 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="main2.js"></script>
+    <script src="main3.js"></script>
 </head>
 
 <body>
@@ -16,9 +16,9 @@
         <tr>
             <td>
                 <form name="form1">
-                    <input type="radio" id="radio-1" name="platos" value="platos1" checked>Primeros platos <br>
-                    <input type="radio" id="radio-2" name="platos" value="platos2" >Segundos platos <br>
-                    <input type="radio" id="radio-3" name="platos" value="postres" >Postres <br>
+                    <input type="radio" id="Primeros" name="platos" value="platos1" checked onclick="swapPlatos(id)">Primeros platos <br>
+                    <input type="radio" id="Segundos" name="platos" value="platos2" onclick="swapPlatos(id)">Segundos platos <br>
+                    <input type="radio" id="Postres" name="platos" value="postres" onclick="swapPlatos(id)">Postres <br>
                 </form>
             </td>
             <td>
@@ -35,10 +35,10 @@
     <table>
         <tr>
             <td>
-                <form name="form2">
+                <form id="form2">
                     <fieldset>
                         <legend>Primeros Platos</legend>
-                        <select multiple id="platos1">
+                        <select multiple>
 
                             <option label="Puré de patata" value="4" ondblclick="annadir(label, value)">Puré de patata
                             </option>
@@ -50,13 +50,11 @@
                             </option>
                             <option label="Sopa de pescado" value="3" ondblclick="annadir(label, value)">Sopa de pescado
                             </option>
-
-
                         </select>
                     </fieldset>
                 </form>
-                <form id="form3">
-                    <fieldset hidden id="platos2">
+                <form hidden id="form3">
+                    <fieldset>
                         <legend>Segundos Platos</legend>
                         <select multiple >
 
@@ -70,14 +68,11 @@
                             </option>
                             <option label="mejillones" value="3" ondblclick="annadir(label, value)">Sopa de pescado
                             </option>
-
-
-
                         </select>
                     </fieldset>
                 </form>
-                <form id="form4">
-                    <fieldset hidden id="platos3">
+                <form hidden id="form4">
+                    <fieldset>
                         <legend>Postres</legend>
                         <select  multiple >
 
