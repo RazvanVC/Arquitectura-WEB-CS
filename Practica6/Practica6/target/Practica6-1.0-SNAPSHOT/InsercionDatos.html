@@ -10,7 +10,26 @@
         <h1>Inserción Datos</h1>
     </head>
     <main>
-
+        <div id="formularioCoche" style=" display: flex; align-items: center">
+            <form id="formularioCoche2" action=/Practica6/ControladorCoche method=POST>
+                <input type="text" name=NombreCoche id="nombreCoche" placeholder="Nombre del coche">
+                <input type="number" name=GananciaPotencia id="gananciaPotenciaCoche" placeholder="Ganancia de potencia del coche" min="4" max="10" value="4">
+                <input type="submit" id="botonCoche" value="Crear Coche" >
+                <!--<button type="button" id="botonCoche" onclick="crearCoche()"Crear Coche</button>-->
+            </form>>
+        </div>
+        
+        <div id="formularioCircuito" style="display: flex; align-items: center">
+            <form id="formularioCircuito2" action=/Practica6/ControladorCircuito method=POST>
+                <input type="text" name=NombreCircuito id="nombreCircuito" placeholder="Nombre del circuito">
+                <input type="text" name=Ciudad id="ciudadCircuito" placeholder="Ciudad del circuito">
+                <input type="text" name=Pais id="paisCircuito" placeholder="Pais del circuito">
+                <input type="number" name=NumeroVueltas id="numeroVueltas" placeholder="Numero de vueltas" min="40" max="80" value="40">
+                <input type="number" name=LongitudVuelta id="longitudVuelta" placeholder="Longitud de vuelta" min="3000" max="9000" value="3000">
+                <input type="number" name=NumeroCurva id="numeroCurvas" placeholder="Numero de curvas" min="6" max="20" value="6">
+                <input type="submit" id="botonCircuito" value="Crear Circuito" >
+            </form>
+        </div>
     </main>
 </body>
 </html>

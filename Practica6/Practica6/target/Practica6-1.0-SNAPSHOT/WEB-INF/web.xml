@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
     <servlet>
-        <servlet-name>Controlador</servlet-name>
-        <servlet-class>Controlador</servlet-class>
+        <servlet-name>ControladorCoche</servlet-name>
+        <servlet-class>ControladorCoche</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControladorCircuito</servlet-name>
+        <servlet-class>ControladorCircuito</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>Controlador</servlet-name>
-        <url-pattern>/Controlador</url-pattern>
+        <servlet-name>ControladorCoche</servlet-name>
+        <url-pattern>/ControladorCoche</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControladorCircuito</servlet-name>
+        <url-pattern>/ControladorCircuito</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
