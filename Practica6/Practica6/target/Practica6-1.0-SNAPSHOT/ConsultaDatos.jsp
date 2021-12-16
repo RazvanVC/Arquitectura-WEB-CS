@@ -67,7 +67,7 @@
                 rs = s.executeQuery("SELECT * FROM APP.COCHE");
                 rsmd = rs.getMetaData();
             %>
-            <p> Datos de tabla de Circuitos </p>
+            <h1> Datos de tabla de Coches </h1>
             <table width="100%" border="1">
                 <tr>
                     <% for (int i = 1; i <= rsmd.getColumnCount(); i++) {%>

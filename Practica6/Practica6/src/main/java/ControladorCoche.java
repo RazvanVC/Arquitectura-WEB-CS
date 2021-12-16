@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -46,6 +45,10 @@ public class ControladorCoche extends HttpServlet {
         String strNombre = peticion.getParameter("NombreCoche");
         int Ganancia = Integer.valueOf(peticion.getParameter("GananciaPotencia"));
         ResultSet resultado;
+        if (strNombre.equals("")) {
+            respuesta.sendRedirect("ErrorInsercionCircuito.html");
+            return;
+        }
         try {
             resultado = coche.executeQuery("SELECT DISTINCT * FROM APP.COCHE");
             boolean redirect = false;

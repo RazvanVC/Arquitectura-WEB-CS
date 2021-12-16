@@ -49,9 +49,14 @@ public class ControladorCircuito extends HttpServlet {
         int longVueltas = Integer.valueOf(peticion.getParameter("LongitudVuelta"));
         int nCurvasVuelta = Integer.valueOf(peticion.getParameter("NumeroCurva"));
         ResultSet resultado;
+        boolean redirect = false;
+        if (nombre.equals("") || ciudad.equals("") || pais.equals("")) {
+            respuesta.sendRedirect("ErrorInsercionCircuito.html");
+            return;
+        }
         try {
             resultado = circuito.executeQuery("SELECT DISTINCT * FROM APP.CIRCUITO");
-            boolean redirect = false;
+            
             while (resultado.next()) {
                 if (resultado.getString("NOMBRE").equals(nombre)) {
                     redirect = true;
