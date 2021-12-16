@@ -92,6 +92,8 @@
                 </tr>
                 <% }%>
             </table>
+            <br>
+            <button class="myButton" onclick="location.href='./index.html'">Volver</button>
         </section>
     </body>
 </html>
