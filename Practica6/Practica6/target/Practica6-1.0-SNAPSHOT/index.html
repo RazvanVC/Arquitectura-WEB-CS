@@ -12,15 +12,15 @@ and open the template in the editor.
     </head>
     <body>
         <!--Dos div ordenados de manera lateral, que contienen dos formularios-->
-        <div id="formularioCircuito">
-            <form id="formularioCircuito2">
+        <div id="formularioCircuito" style="display: flex; align-items: center">
+            <form id="formularioCircuito2" action=/Practica6/Controlador method=POST>
                 <input type="text" id="nombreCircuito" placeholder="Nombre del circuito">
                 <input type="text" id="ciudadCircuito" placeholder="Ciudad del circuito">
                 <input type="text" id="paisCircuito" placeholder="Pais del circuito">
                 <input type="number" id="numeroVueltas" placeholder="Numero de vueltas" min="40" max="80" value="40">
                 <input type="number" id="longitudVuelta" placeholder="Longitud de vuelta" min="3000" max="9000" value="3000">
                 <input type="number" id="numeroCurvas" placeholder="Numero de curvas" min="6" max="20" value="6">
-                <button type="button" id="botonCircuito">Añadir circuito</button>
+                <input type="submit" id="botonCircuito" value="Creacr Circuito" >
             </form>
         </div>
         <!-- Formulario de coches, contiene Nombre de Coche y ganancia de potencia por curva (numero entre 4 y 10)-->
