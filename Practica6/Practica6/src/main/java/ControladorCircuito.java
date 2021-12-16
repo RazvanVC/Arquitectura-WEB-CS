@@ -61,7 +61,7 @@ public class ControladorCircuito extends HttpServlet {
             if (redirect) {
                 respuesta.sendRedirect("ErrorInsercionCircuito.html");
             } else {
-                circuito.execute("INSERT INTO APP.CIRCUITO (NOMBRE, CIUDAD, PAIS, NVUELTAS, LONGVUELTAS, NCURVASVUELTA) VALUES( '" + nombre + "','" + ciudad + "','" + pais + "'," + nVueltas + "," + longVueltas + "," + nCurvasVuelta + ")");
+                circuito.execute("INSERT INTO APP.CIRCUITO (NOMBRE, CIUDAD, PAIS, NVUELTAS, LONGVUELTA, NCURVASVUELTA) VALUES( '" + nombre + "','" + ciudad + "','" + pais + "'," + nVueltas + "," + longVueltas + "," + nCurvasVuelta + ")");
                 /* creación del flujo de salida hacia el cliente */
                 ServletOutputStream out = respuesta.getOutputStream();
                 out.println("<!DOCTYPE html>");
@@ -101,5 +101,4 @@ public class ControladorCircuito extends HttpServlet {
             return;
         }
     }
-
 }
