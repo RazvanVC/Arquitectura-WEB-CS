@@ -80,6 +80,10 @@ table {
     width: 100%;
     text-align: center;
 }
+form{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+}
 
 .link_tabla {
     text-decoration: none;
@@ -225,3 +229,8 @@ table {
     color: rgb(0, 0, 0);
     font-size: 30px;
 }
+.insert{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
+}}
