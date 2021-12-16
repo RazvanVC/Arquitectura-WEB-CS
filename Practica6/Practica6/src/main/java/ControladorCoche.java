@@ -6,7 +6,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-<<<<<<< Updated upstream
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,9 +16,7 @@ import java.util.logging.Logger;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
-=======
 import javax.servlet.ServletException;
->>>>>>> Stashed changes
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ControladorCoche extends HttpServlet {
 
-<<<<<<< Updated upstream
     Statement coche = null;
     Connection conexion = null;
 
@@ -102,8 +98,6 @@ public class ControladorCoche extends HttpServlet {
             return;
         }
     }
-
-=======
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -168,6 +162,4 @@ public class ControladorCoche extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
->>>>>>> Stashed changes
 }
