@@ -56,7 +56,7 @@
                 }
                 session.setAttribute("GananciaTotal", ganancia*numeroVueltas*numeroCurvas);
             %>
-            <p> La ganancia de potencia es de: <%=session.getAttribute("GananciaTotal")%> <p>
+            <h1> La ganancia de potencia es de: <%=session.getAttribute("GananciaTotal")%> </h1>
                 <br>
                 <button class="myButton" onclick="location.href='./index.html'">Volver al menú</button>
         </section>

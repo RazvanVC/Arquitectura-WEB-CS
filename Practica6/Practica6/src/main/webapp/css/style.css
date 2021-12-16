@@ -5,9 +5,10 @@
   }
 
 body {  
-    background-image:linear-gradient(to right, #4b65ad,  #009976,
-    #00A680, #00B68D, #00C69A, #00D2A3, #00E1AE, #5771e6);
+    background-image:linear-gradient(to right, #4b65ad,  #2d80a1,
+    #3173aa, #0073b6, #009ec6, #00bad2, #00d2e1, #5771e6);
     font-family: 'Times New Roman', Times, serif;
+    text-align: center;
 }
 
 p, b {
@@ -15,8 +16,16 @@ p, b {
     text-align: justify;
 }
 
+
 h1, h2, h3 , h4 {
     font-family: 'Times New Roman', Times, serif;
+    
+}
+h1 {
+    color:rgb(27, 1, 143);
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align:center;
 }
 
 h2 {
@@ -69,6 +78,7 @@ table {
     padding-top: 10px;
     padding-bottom: 10px;
     width: 100%;
+    text-align: center;
 }
 
 .link_tabla {
@@ -204,4 +214,14 @@ table {
     text-align: center;
     color: rgb(92, 92, 92);
     font-size: 20px;
+}
+.label{
+    text-align: center;
+    color: rgb(92, 92, 92);
+    font-size: 40px;
+}
+.select{
+    text-align: center;
+    color: rgb(0, 0, 0);
+    font-size: 30px;
 }

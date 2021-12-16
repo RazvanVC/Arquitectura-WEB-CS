@@ -35,8 +35,9 @@
             %>
             <h1>Calcular Ganancia</h1>
             <form action="CalculoFinal.jsp" method="post">
-                <label>Seleccione un circuito</label>
-                <select name="circuito">
+                <br/>
+                <label class="label">Seleccione un circuito</label>
+                <select class="select" name="circuito">
                     <% while (rs.next()) { %>
                     <% for (int i = 1; i <= rsmd.getColumnCount(); i++) { %>
                     <%-- Recuperamos los valores de las columnas que
@@ -54,8 +55,9 @@
                 rs = s.executeQuery("SELECT COCHE.NOMBRE FROM APP.COCHE");
                 rsmd = rs.getMetaData();
                 %>
-                <label>Seleccione un coche</label>
-                <select name="coche">
+                <br/>
+                <label class="label">Seleccione un coche</label>
+                <select class="select" name="coche">
                     <% while (rs.next()) { %>
                     <% for (int i = 1; i <= rsmd.getColumnCount(); i++) { %>
                     <%-- Recuperamos los valores de las columnas que
@@ -67,8 +69,9 @@
                         <%}
                     }%>
                 </select>
-                <br>
-                <input type="submit" value="Calcular Ganancia">
+                <br/>
+                <br/>
+                <input class="myButton" type="submit" value="Calcular Ganancia">
             </form>
         </section>
     </body>

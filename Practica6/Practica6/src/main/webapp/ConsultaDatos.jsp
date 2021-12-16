@@ -33,8 +33,8 @@
                 rs = s.executeQuery("SELECT * FROM APP.CIRCUITO");
                 rsmd = rs.getMetaData();
             %>
-            <p> Datos de tabla de Circuitos </p>
-            <table width="100%" border="1">
+            <h1> Datos de tabla de Circuitos </h1>
+            <table width="100%" border="1" style="text-align: center">
                 <tr>
                     <% for (int i = 1; i <= rsmd.getColumnCount(); i++) {%>
                     <%-- Obtenemos los nombres de las columnas y los colocamos
