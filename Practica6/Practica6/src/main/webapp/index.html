@@ -5,57 +5,37 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>Pagina principal</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <!--Dos div ordenados de manera lateral, que contienen dos formularios-->
-        <div id="formularioCircuito" style="display: flex; align-items: center">
-            <form id="formularioCircuito2" action=/Practica6/Controlador method=POST>
-                <input type="text" id="nombreCircuito" placeholder="Nombre del circuito">
-                <input type="text" id="ciudadCircuito" placeholder="Ciudad del circuito">
-                <input type="text" id="paisCircuito" placeholder="Pais del circuito">
-                <input type="number" id="numeroVueltas" placeholder="Numero de vueltas" min="40" max="80" value="40">
-                <input type="number" id="longitudVuelta" placeholder="Longitud de vuelta" min="3000" max="9000" value="3000">
-                <input type="number" id="numeroCurvas" placeholder="Numero de curvas" min="6" max="20" value="6">
-                <input type="submit" id="botonCircuito" value="Creacr Circuito" >
-            </form>
-        </div>
-        <!-- Formulario de coches, contiene Nombre de Coche y ganancia de potencia por curva (numero entre 4 y 10)-->
-        <div id="formularioCoche">
-            <form id="formularioCoche2">
-                <input type="text" id="nombreCoche" placeholder="Nombre del coche">
-                <input type="number" id="gananciaPotenciaCoche" placeholder="Ganancia de potencia del coche" min="4" max="10" value="4">
-                <button type="button" id="botonCoche" onclick="crearCoche()">Crear Coche</button>
-            </form>
-        </div>
-        <!-- Dos tablas, una con los coches y otra con los circuitos-->
-        <div id="tablaCoches">
-            <table id="tablaCoches2">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Ganancia de potencia</th>
-                </tr>
-            </table>
-        </div>
-        <div id="tablaCircuitos">
-            <table id="tablaCircuitos2">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Ciudad</th>
-                    <th>Pais</th>
-                    <th>Numero de vueltas</th>
-                    <th>Longitud de vuelta</th>
-                    <th>Numero de curvas</th>
-                </tr>
-            </table>
-        </div>
-        <!-- Boton para calcular ganancia de la carrera-->
-        <button type="button" id="botonCalcular" onclick="calcularCarrera()">Calcular ganancia de la carrera</button>
-        <!-- h3 para mostrar la ganancia de la carrera-->
-        <h3 id="gananciaCarrera">-</h3>
-        <div>TODO write content</div>
-    </body>
+
+<head>
+    <title>Pagina principal</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        table,
+        th,
+        th {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="encabezado" id="0">
+        <h1>Bienvenido</h1>
+    </header>
+
+    <!--Cuatro botones verticales-->
+    <main>
+        <section class="seccion" id="0">
+            <button class="myButton" onclick="location.href='InsercionDatos.html'">Inserción de Datos</button>
+            <button class="myButton" onclick="location.href='ConsultaDatos.html'">Consulta de Datos</button>
+            <button class="myButton" onclick="location.href='CalcularGanancia.jsp'">Calcular Ganancia</button>
+
+        </section>
+    </main>
+
+</body>
+
 </html>
