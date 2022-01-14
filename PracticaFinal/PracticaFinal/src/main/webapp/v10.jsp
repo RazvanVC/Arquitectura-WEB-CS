@@ -16,10 +16,30 @@
     <body>
         <section class="section">
             <%@ page import="java.sql.*" %>
-            <% 
-                //metemos las variables necesarias
+            <%!
+                // Declaraciones de las variables utilizadas para la
+                // conexión a la base de datos y para la recuperación de
+                // datos de las tablas
 
+                Connection c;
+                Statement s;
+                ResultSet rs;
+                ResultSetMetaData rsmd;
             %>
+            <%
+                // Inicialización de las variables necesarias para la
+                // conexión a la base de datos y realización de consultas
+
+                c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
+                //c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample?,?app?,?app");
+                s = c.createStatement();
+                
+                rs = s.executeQuery("SELECT ORIGEN.NOMBRE FROM APP.ORIGEN");
+                rsmd = rs.getMetaData();
+            %>
+
+            <h1>Origen del Vuelo</h1>
+            <label
 
             <label class="label">Seleccione Latitud</label>
             <select class="select" name="latitud">

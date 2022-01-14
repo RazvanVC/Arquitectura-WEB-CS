@@ -73,6 +73,6 @@
                 <br/>
                 <input class="myButton" type="submit" value="Calcular Ganancia">
             </form>
-        </section>
+        </section>      
     </body>
 </html>
