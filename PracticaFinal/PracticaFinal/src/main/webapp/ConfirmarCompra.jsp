@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="./css/style.css">
         <title>Copnfirmar Compra</title>
     </head>
     <body>
@@ -16,7 +17,7 @@
         <!-- Aqui va la imagen del logo -->
         <section>
             <h3>Rellene su(s) billete(s)</h3>
-            <form action="<%=request.getContextPath()%>/Login" method="post">
+            <form action="<%=request.getContextPath()%>/VerCompra.jsp" method="post">
                 <fieldset>
                     <!---Todo esto se genera de forma dinámica dependiendo del número de usuarios--->
                     <div>
