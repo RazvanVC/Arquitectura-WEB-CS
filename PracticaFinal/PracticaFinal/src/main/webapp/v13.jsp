@@ -39,9 +39,12 @@
                 <tr>
                     <td>
                         <input type="radio" id="Ruta" name="Ruta" value="Ruta">Ruta del vuelo <br>
+                    </td>
+                    <td>
                         <input type="radio" id="Vuelo" name="Vuelo" value="Vuelo">Destino del vuelo <br>
                     </td>
-
+                </tr>
+                <tr>
                     <td>
                         <h1>Origen del Vuelo</h1>
                         <label class="label">Seleccione Origen del Vuelo a modificar: </label>
@@ -61,7 +64,8 @@
                         rs = s.executeQuery("SELECT DESTINO.NOMBRE FROM APP.DESTINO");
                         rsmd = rs.getMetaData();
                         %>
-
+                    </td>
+                    <td>
                         <h2>Destino del Vuelo</h2>
                         <label class="label">Seleccione Destino del Vuelo a modificar: </label>
                         <select class="select" name="destino">
@@ -76,34 +80,48 @@
                         }%>
                         </select>
                     </td>
+                </tr>
 
+                <tr>
                     <td>
-                        <input type="date" id="FechaOrigen" name="Fecha de Origen" value="<%=rs.getString(1)%>">Origen del vuelo <br>
-                        <input type="date" id="FechaDestino" name="Fecha Destino" value="<%=rs.getString(2)%>">Destino del vuelo <br>
+                        <input type="date" id="FechaOrigen" name="FechaOrigen" value="" required>Origen del vuelo <br>
                     </td>
-
                     <td>
-                        <input type="date" id="FechaInicio" name="Fecha del Inicio" value="<%=rs.getString(3)%>">Inicio del vuelo <br>
-                        <input type="date" id="FechaFinal" name="Fecha del Final" value="<%=rs.getString(4)%>">Final del vuelo <br>
+                        <input type="date" id="FechaDestino" name="FechaDestino" value="" required>Destino del vuelo <br>
                     </td>
-
+                </tr>
+                <tr>
                     <td>
-                        <input type="number" id="Temporalidad" name="Temporalidad" value="<%=rs.getString(5)%>">Temporalidad <br>
+                        <input type="date" id="FechaInicio" name="FechaInicio" value="" required>Inicio del vuelo <br>
                     </td>
-
                     <td>
-                        <input type="radio" id="PrecioRecomendado" name="Precio Recomendado" value="Precio Recomendado">Precio recomendado <br>
-                        <input type="radio" id="PrecioCustomizado" name="Precio Customizado" value="Precio Customizado">Precio customizado <br>
+                        <input type="date" id="FechaFinal" name="FechaFinal" value="" >Final del vuelo <br>
                     </td>
-
+                </tr>
+                <tr>
                     <td>
-                        <input type="number" id="PrecioBillete" name="Precio del Billete" value="<%=rs.getString(6)%>">Precio del billete<br>
+                        <input type="number" id="Temporalidad" name="Temporalidad" value="">Temporalidad <br>
                     </td>
-
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" id="PrecioRecomendado" name="PrecioRecomendado" value="Precio Recomendado">Precio recomendado <br>
+                    </td>
+                    <td>
+                        <input type="radio" id="PrecioCustomizado" name="PrecioCustomizado" value="Precio Customizado">Precio customizado <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="number" id="PrecioBillete" name="PrecioBillete" value="">Precio del billete<br>
+                    </td>
+                </tr>
+                <tr>
                     <td>
                         <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">Confirmar<br>
                     </td>
-
+                </tr>
+                <tr>
                     <td>
                         <button class="myButton" onclick="location.href='./v9'">Volver a la página de Administrador</button>
                     </td>
@@ -111,5 +129,33 @@
             </table>
             </form>
         </section> 
+
+    <%  if (request.getParameter("Confirmar") != null) {
+            String username = request.getParameter("username");   //ESTO HAY QUE BURRARLO KBRON
+            String password = request.getParameter("password");
+
+            if (username.equals("admin@admin.com") && password.equals("admin")) {
+                response.sendRedirect("/PracticaFinal/v9.html");
+            } else {
+                rs = s.executeUpdate("SELECT USUARIOS.CONTRASEÑA FROM APP.USUARIOS WHERE USUARIOS.CORREO='" + username + "' FETCH FIRST 1 ROWS ONLY");
+                if (rs.next()) {
+                    String BDPassword = rs.getString("CONTRASEÑA");
+                    if (BDPassword.equals(password)) {
+                        response.sendRedirect("/V4.jsp");
+                    }
+                } else {
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('User or password incorrect');");
+                    out.println("location='Login.jsp';");
+                    out.println("</script>");
+                }
+            }
+        } //Hasta aqui se Burra KBRON
+
+        Date origen = request.getParameter("FechaOrigen");
+        Date destino =request.getParameter("FechaDestino");
+
+
+    }
     </body>        
 </html>
