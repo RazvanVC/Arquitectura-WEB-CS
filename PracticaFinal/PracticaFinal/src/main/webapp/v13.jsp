@@ -34,11 +34,12 @@
             %>
 
             
+            <form action=''>
             <table>
                 <tr>
                     <td>
-                        <input type="radio" id="Ruta" name="Ruta" value="ruta">Ruta del vuelo <br>
-                        <input type="radio" id="Destino" name="Destino" value="destino">Destino del vuelo <br>
+                        <input type="radio" id="Ruta" name="Ruta" value="Ruta">Ruta del vuelo <br>
+                        <input type="radio" id="Vuelo" name="Vuelo" value="Vuelo">Destino del vuelo <br>
                     </td>
 
                     <td>
@@ -77,17 +78,17 @@
                     </td>
 
                     <td>
-                        <input type="date" id="FechaOrigen" name="Fecha de Origen" value="Fecha Origen">Origen del vuelo <br>
-                        <input type="date" id="FechaDestino" name="Fecha Destino" value="Fecha Destino">Destino del vuelo <br>
+                        <input type="date" id="FechaOrigen" name="Fecha de Origen" value="<%=rs.getString(1)%>">Origen del vuelo <br>
+                        <input type="date" id="FechaDestino" name="Fecha Destino" value="<%=rs.getString(2)%>">Destino del vuelo <br>
                     </td>
 
                     <td>
-                        <input type="date" id="FechaInicio" name="Fecha del Inicio" value="Fecha Inicio">Inicio del vuelo <br>
-                        <input type="date" id="FechaFinal" name="Fecha del Final" value="Fecha Final">Final del vuelo <br>
+                        <input type="date" id="FechaInicio" name="Fecha del Inicio" value="<%=rs.getString(3)%>">Inicio del vuelo <br>
+                        <input type="date" id="FechaFinal" name="Fecha del Final" value="<%=rs.getString(4)%>">Final del vuelo <br>
                     </td>
 
                     <td>
-                        <input type="number" id="Temporalidad" name="Temporalidad" value="Temporalidad">Temporalidad <br>
+                        <input type="number" id="Temporalidad" name="Temporalidad" value="<%=rs.getString(5)%>">Temporalidad <br>
                     </td>
 
                     <td>
@@ -96,7 +97,7 @@
                     </td>
 
                     <td>
-                        <input type="number" id="PrecioBillete" name="Precio del Billete" value="Precio Billete">Precio del billete<br>
+                        <input type="number" id="PrecioBillete" name="Precio del Billete" value="<%=rs.getString(6)%>">Precio del billete<br>
                     </td>
 
                     <td>
@@ -106,13 +107,9 @@
                     <td>
                         <button class="myButton" onclick="location.href='./v9'">Volver a la página de Administrador</button>
                     </td>
-
                 </tr>
             </table>
-
-            
-
-
-
-
+            </form>
+        </section> 
+    </body>        
 </html>
