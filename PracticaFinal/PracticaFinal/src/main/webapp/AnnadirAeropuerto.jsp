@@ -104,7 +104,7 @@
             <br/>
             <br/>
             <input class="myButton" type="submit" value="Confirmar">
-            <button class="myButton" onclick="location.href='./v1'">Volver al menú principal</button>
+            <button class="myButton" onclick="location.href='./Login.jsp'">Volver al menú principal</button>
 
 
 

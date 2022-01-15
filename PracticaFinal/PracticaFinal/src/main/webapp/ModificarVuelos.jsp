@@ -1,94 +1,89 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.sql.*"%>
+<%!
+    // Declaraciones de las variables utilizadas para la
+    // conexión a la base de datos y para la recuperación de
+    // datos de las tablas
+    Connection c;
+    Statement s;
+    ResultSet rs;
+    ResultSetMetaData rsmd;
+    Boolean registro = true;
+%>
+
 <!DOCTYPE html>
 
 <html>
     <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Modificar Vuelos</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="main.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Modificar Vuelos</title>
+        <link rel="stylesheet" href="./css/style.css">
+        <script src="main.js"></script>
     </head>
 
     <body>
         <section class="section">
-         <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
-            <%@ page import="java.sql.*" %>
-            <%!
-                // Declaraciones de las variables utilizadas para la
-                // conexión a la base de datos y para la recuperación de
-                // datos de las tablas
-
-                Connection c;
-                Statement s;
-                ResultSet rs;
-                ResultSetMetaData rsmd;
-            %>
-            <%
-                // Inicialización de las variables necesarias para la
-                // conexión a la base de datos y realización de consultas
-
-                c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
-                //c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample?,?app?,?app");
-                s = c.createStatement();
-                
-                rs = s.executeQuery("SELECT ORIGEN.NOMBRE FROM APP.ORIGEN");
-                rsmd = rs.getMetaData();
-            %>
-
             <form action=''>
                 <table>
                     <tr>
-                        <h1>Vuelo</h1>
-                        <label class="label">Vuelo: </label>
-                        <input type="text" id="idvuelo" name="idvuelo" value="" required>ID VUELO
+                    <h1>Vuelo</h1>
+                    <label class="label">Vuelo:</label>
+                    <input type="text" id="Vuelo" name="Vuelo" value"" required>Vuelo a modificar <br>
                     </tr>
 
                     <tr>
-
-                        <input type="date" id="Fecha" name="Fecha" value="" required>Fecha 
+                    <input type="date" id="Fecha" name="Fecha" value="" required>Fecha 
                     </tr>
                     <br/>
                     <tr>
-                        <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>Precio Billete 
+                    <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>Precio Billete <br>
                     </tr>
                     <br/>
                     <tr>
-                        <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">Confirmar
+                    <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">Confirmar<br>
                     </tr>
                     <br/>
                     <tr>
-                        <button class="myButton" onclick="location.href='./v9'">Volver a la página de Administrador</button>
+                    <button class="myButton" onclick="location.href = './AdminMainMenu.html'">Volver a la página de Administrador</button>
                     </tr>
                 </table>
             </form>
         </section>
 
-        <%  if (request.getParameter("Confirmar") != null) {
-            String username = request.getParameter("username");   //ESTO HAY QUE BURRARLO KBRON
-            String password = request.getParameter("password");
+        <%
 
-            if (username.equals("admin@admin.com") && password.equals("admin")) {
-                response.sendRedirect("/PracticaFinal/v9.html");
-            } else {
-                rs = s.executeUpdate("SELECT USUARIOS.CONTRASEÑA FROM APP.USUARIOS WHERE USUARIOS.CORREO='" + username + "' FETCH FIRST 1 ROWS ONLY");
-                if (rs.next()) {
-                    String BDPassword = rs.getString("CONTRASEÑA");
-                    if (BDPassword.equals(password)) {
-                        response.sendRedirect("/V4.jsp");
+            c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
+            s = c.createStatement();
+
+            if (request.getParameter("Confirmar") != null) {
+                String vuelo = request.getParameter("Vuelo");
+                String fecha = request.getParameter("Fecha");
+                System.out.println(fecha);
+                Double precioBillete = Double.valueOf(request.getParameter("PrecioBillete"));
+
+                //para ver si existe la tabla
+                s.executeQuery("SELECT VUELO.ID_VUELO FROM APP.VUELO");
+                rs = s.getResultSet();
+                rsmd = rs.getMetaData();
+
+                while (rs.next()) {
+                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                        if (rs.getString(i).equals(vuelo)) {
+                            registro = false;
+                            out.println("<script type=\"text/javascript\">");
+                            out.println("alert('Fly already register');");
+                            out.println("location='ModificarVuelos.jsp';");
+                            out.println("</script>");
+                        }
                     }
-                } else {
-                    out.println("<script type=\"text/javascript\">");
-                    out.println("alert('User or password incorrect');");
-                    out.println("location='Login.jsp';");
-                    out.println("</script>");
+                }
+
+                if (registro) {
+                    s.executeUpdate("UPDATE APP.VUELO SET FECHA=" + fecha + ",  PRECIO_BILLETE='" + precioBillete + "' ");
+                    response.sendRedirect("/PracticaFinal/AcceptQuery.html");
                 }
             }
-        } //Hasta aqui se Burra KBRON
-
-        Date origen = request.getParameter("FechaOrigen");
-        Date destino =request.getParameter("FechaDestino");
-
-
-    }
+        %>
+        }
     </body>
 </html>
