@@ -35,7 +35,7 @@
                     <input type="submit" value="Login" name="login"/>
                 </fieldset>
             </form>
-            <a href="">/Register">Register</a>
+            <a href="/PracticaFinal/RegisterUser.jsp">/Register">Register</a>
         </section>
 
         <%

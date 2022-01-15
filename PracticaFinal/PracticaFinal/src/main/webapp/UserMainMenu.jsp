@@ -26,7 +26,7 @@
             <button class="myButton" onclick="location.href='ConsultaDatos.jsp'">Consulta mis Billetes</button>
             <br/>
             <br/>
-            <button class="myButton" onclick="location.href='CalcularGanancia.jsp'">Salir</button>
+            <button class="myButton" onclick="location.href='Login.jsp'">Salir</button>
             <br/>
             <br/>
         </section>
