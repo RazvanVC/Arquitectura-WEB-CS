@@ -14,9 +14,7 @@
     </head>
     <body>
         <!--Logo de la empresa-->
-        <div class="logo">
-            <img src="/resources/images/logo.png" alt="Logo" width="100" height="100">
-        </div>
+       <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
         <!--Menu de navegacion con 3 botones-->
         <section class="seccion" id="1">
             <br/>
