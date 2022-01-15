@@ -48,7 +48,7 @@
                 String password = request.getParameter("password");
 
                 if (username.equals("admin@admin.com") && password.equals("admin")) {
-                    response.sendRedirect("/PracticaFinal/v9.html");
+                    response.sendRedirect("/PracticaFinal/AdminMainMenu.html");
                 } else {
                     rs = s.executeQuery("SELECT * FROM APP.USUARIOS WHERE USUARIOS.CORREO='" + username + "' FETCH FIRST 1 ROWS ONLY");
                     if (rs.next()) {

@@ -14,6 +14,7 @@
     Statement s;
     ResultSet rs;
     ResultSetMetaData rsmd;
+    
 %>
 <!DOCTYPE html>
 <html>
@@ -21,94 +22,112 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Compra Billete</title>
         <link rel="stylesheet" href="./css/style.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="./js/CompraBillete.js"></script>
     </head>
     <body>
+        <% 
+        c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app"); 
+        %>
         <section class="seccion">
             <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
             <h1>Compra Billete</h1>
             <!-- Tabla que continene 7 filas. La primera son dos comboboxes la segunda son dos radio buttons, la tercera dos capos de fecha, y la quinta un boton-->
-            <form action="">
+            <form action="ConfirmarBillete.jsp" method="post">
                 <table>
                     <tr>
                         <td>
-                            <select class="select">
-                                <option value="0">Seleccione una opción</option>
-                                <option value="1">Coche</option>
-                                <option value="2">Circuito</option>
+                            <%
+                            s = c.createStatement();
+                            rs = s.executeQuery("SELECT ORIGEN.NOMBRE FROM APP.ORIGEN");
+                            rsmd = rs.getMetaData();
+                            %>
+                            <select class="select" id="origen" name="origen" >
+                                <%  
+                                while (rs.next()) {
+                                %>
+                                <%-- Recuperamos los valores de las columnas que
+                                corresponden a cada uno de los registros de la
+                                tabla. Hay que recoger correctamente el tipo de
+                                dato que contiene la columna --%>
+                                <option id="<%= rs.getString("NOMBRE") %>"><%= rs.getString("NOMBRE")%></option>
+                                <%
+                                }
+                                %>
                             </select>
                         </td>
                         <td>
-                            <select class="select">
-                                <option value="0">Seleccione una opción</option>
-                                <option value="1">Coche</option>
-                                <option value="2">Circuito</option>
+                            <%
+                            s = c.createStatement();
+                            rs = s.executeQuery("SELECT DESTINO.NOMBRE FROM APP.DESTINO");
+                            rsmd = rs.getMetaData();
+                            %>
+                            <select class="select" name="destino">
+                                <%  
+                                while (rs.next()) {
+                                %>
+                                <%-- Recuperamos los valores de las columnas que
+                                corresponden a cada uno de los registros de la
+                                tabla. Hay que recoger correctamente el tipo de
+                                dato que contiene la columna --%>
+                                <option id="<%= rs.getString("NOMBRE") %>"><%= rs.getString("NOMBRE")%></option>
+                                <%
+                                }
+                                %>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="radio" name="tipo" value="ida">
+                            <input type="radio" name="tipo" value="ida" checked onclick="showFields()">
                             <label for="tipo">IDA</label>
                         </td>
                         <td>
-                            <input type="radio" name="tipo" value="ida+vuelta">
+                            <input type="radio" name="tipo" value="ida+vuelta" onclick="showFields()">
                             <label for="tipo">IDA+VUELTA</label>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <select class="select">
-                                <option value="0">Seleccione una opción</option>
-                                <option value="1">Coche</option>
-                                <option value="2">Circuito</option>
+                            <select class="select" name="MesIDA">
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
                             </select>
                         </td>
                         <td>
-                            <select class="select">
-                                <option value="0">Seleccione una opción</option>
-                                <option value="1">Coche</option>
-                                <option value="2">Circuito</option>
+                            <select class="select" hidden id="formVuelta" name="MesVuelta">
+                                <option value="1">Enero</option>
+                                <option value="2">Febrero</option>
+                                <option value="3">Marzo</option>
+                                <option value="4">Abril</option>
+                                <option value="5">Mayo</option>
+                                <option value="6">Junio</option>
+                                <option value="7">Julio</option>
+                                <option value="8">Agosto</option>
+                                <option value="9">Septiembre</option>
+                                <option value="10">Octubre</option>
+                                <option value="11">Noviembre</option>
+                                <option value="12">Diciembre</option>
                             </select>
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <input type="submit" value="Consultar" class="myButton">
+                            <input type="submit" value="Consultar" class="myButton" name="consultar">
                         </td>
                     </tr>
                 </table>
             </form>
         </section>
-        <section class="seccion">
-            <form>
-                <table>
-                    <tr>
-                        <td>
-                            <label for="fecha">Fecha de salida</label>
-                            <input type="date" name="fecha" id="fecha">
-                        </td>
-                        <td>
-                            <label for="fecha">Fecha de vuelta</label>
-                            <input type="date" name="fecha" id="fecha">
-                        </td>
-                    </tr>
-                    <tr>
-                        <!-- Numero pasajeros -->
-                        <td>
-                            <label for="numeroPasajeros">Numero de pasajeros</label>
-                            <input type="number" name="numeroPasajeros" id="numeroPasajeros">
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="submit" value="Comprar" class="myButton">
-                        </td>
-                    </tr>
-                </table>
-            </form>
-        </section>
-
-        
     </body>
 </html>

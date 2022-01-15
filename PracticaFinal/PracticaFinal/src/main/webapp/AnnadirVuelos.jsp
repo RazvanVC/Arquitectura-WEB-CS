@@ -124,28 +124,50 @@
             </form>
         </section> 
 
-    <%  if (request.getParameter("Confirmar") != null) {
-            String username = request.getParameter("username");   //ESTO HAY QUE BURRARLO KBRON
-            String password = request.getParameter("password");
+    <%
+        c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
+        s = c.createStatement();
 
-            if (username.equals("admin@admin.com") && password.equals("admin")) {
-                response.sendRedirect("/PracticaFinal/v9.html");
-            } else {
-                rs = s.executeUpdate("SELECT USUARIOS.CONTRASEÑA FROM APP.USUARIOS WHERE USUARIOS.CORREO='" + username + "' FETCH FIRST 1 ROWS ONLY");
-                if (rs.next()) {
-                    String BDPassword = rs.getString("CONTRASEÑA");
-                    if (BDPassword.equals(password)) {
-                        response.sendRedirect("/V4.jsp");
+        -------rs = s.executeUpdate("INSERT INTO APP.ORIGEN.NOMBRE VALUES(origen);");
+        -------rs = s.executeUpdate("INSERT INTO APP.DESTINO.NOMBRE VALUES(destino)");
+
+        if (request.getParameter("Confirmar") != null) {
+            
+            String origen = request.getParameter("LugarOrigen");
+            String destino = request.getParameter("LugarDestino");
+            Date inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("FechaInicio"));
+            Date final = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("FechaFinal"));
+            Integer.valueOf("Temporalidad");
+
+            
+            rs = s.executeUpdate("INSERT INTO APP.VUELO SET FECHAFECHA_INICIO VALUES (inicio) ");
+            
+            
+
+
+            String vuelo = request.getParameter("Vuelo");
+            String fecha = request.getParameter("Fecha");
+            System.out.println(fecha);
+            Double precioBillete = Double.valueOf(request.getParameter("PrecioBillete"));
+
+                //para ver si existe la tabla
+                s.executeQuery("SELECT VUELO.ID_VUELO FROM APP.VUELO");
+                rs = s.getResultSet();
+                rsmd = rs.getMetaData();
+
+                while (rs.next()) {
+                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                        if (rs.getString(i).equals(vuelo)) {
+                            registro = false;
+                            out.println("<script type=\"text/javascript\">");
+                            out.println("alert('Fly already register');");
+                            out.println("location='ModificarVuelos.jsp';");
+                            out.println("</script>");
+                        }
                     }
-                } else {
-                    out.println("<script type=\"text/javascript\">");
-                    out.println("alert('User or password incorrect');");
-                    out.println("location='Login.jsp';");
-                    out.println("</script>");
                 }
-            }
-        } //Hasta aqui se Burra KBRON
 
+<<<<<<< HEAD
         String origen = request.getParameter("LugarOrigen");
         String destino = request.getParameter("LugarDestino");
         Date inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("FechaInicio"));
@@ -162,9 +184,23 @@
         }
        
        
+=======
+        }
+
+        s.executeUpdate("UPDATE APP.VUELO SET FECHA=" + fecha + ",  PRECIO_BILLETE='" + precioBillete + "' ");
+        response.sendRedirect("/PracticaFinal/AcceptQuery.html");
+
+        //BUCLEAMOS EL FOR PARA LA FECHA FINAL, PERO ESTA NO SE ALMACENA EN LA BASE DE DATOS
+        rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_INICIO VALUES (inicio) ");
+        else
+        while(inicio<Final)
+        rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_INICIO VALUES (inicio) ");
+        rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_FINAL VALUES (final) ");
+        inicio= add(inicio+temporalidad)
+>>>>>>> 19a56ea12606669e20ba947e40da2c8f026f8f86
         
         
-        %>
+    %>
     }
     </body>        
 </html>

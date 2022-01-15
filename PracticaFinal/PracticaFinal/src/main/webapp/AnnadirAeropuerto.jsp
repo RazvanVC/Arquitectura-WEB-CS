@@ -15,7 +15,7 @@
 
     <body>
         <section class="section">
-        <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
+        
             <%@ page import="java.sql.*" %>
             <%!
                 // Declaraciones de las variables utilizadas para la
@@ -39,76 +39,105 @@
                 rsmd = rs.getMetaData();
             %>
 
-            <h1>Origen del Vuelo</h1>
-            <label
+            <header class="encabezado">
+                <h1> <img src="/src/main/resources/META-INF/images/logo.png" alt="Logo" width="300" height="300"> </h1>
+                
+                <h2>Origen del Vuelo</h2>
+            </header>
 
-            <label class="label">Seleccione Latitud</label>
-            <select class="select" name="latitud">
-
-            </select>
-
-            <label class="label">Seleccione Longitud</label>
-            <select class="select" name="longitud">
-
-            </select>
-
-            <label class="label">Seleccione Nombre</label>
-            <select class="select" name="nombre_v10">
-
-            </select>
-
-            
-            //Hacer el combobox de tasa
             <form action="CalculoFinal.jsp" method="post">
-                <br/>
-                <label class="label">Seleccione un circuito</label>
-                <select class="select" name="circuito">
-                    <% while (rs.next()) { %>
-                    <% for (int i = 1; i <= rsmd.getColumnCount(); i++) { %>
-                    <%-- Recuperamos los valores de las columnas que
-                    corresponden a cada uno de los registros de la
-                    tabla. Hay que recoger correctamente el tipo de
-                    dato que contiene la columna --%>
-                    
-                        <option><%= rs.getString(i)%></option>
-                        <%}
-                    }%>
-                </select>
-                <br>
-                <%
-                s = c.createStatement();
-                rs = s.executeQuery("SELECT COCHE.NOMBRE FROM APP.COCHE");
-                rsmd = rs.getMetaData();
-                %>
-                <br/>
-                <label class="label">Seleccione un coche</label>
-                <select class="select" name="coche">
-                    <% while (rs.next()) { %>
-                    <% for (int i = 1; i <= rsmd.getColumnCount(); i++) { %>
-                    <%-- Recuperamos los valores de las columnas que
-                    corresponden a cada uno de los registros de la
-                    tabla. Hay que recoger correctamente el tipo de
-                    dato que contiene la columna --%>
-                    
-                        <option><%= rs.getString(i)%></option>
-                        <%}
-                    }%>
-                </select>
-                <br/>
-                <br/>
-                <input class="myButton" type="submit" value="Calcular Ganancia">
+
+                <tr>
+                    <td>
+                        <input type="radio" name="tipo" value="ida">
+                        <label for="tipo">Origen</label>
+                    </td>
+                    <td>
+                        <input type="radio" name="tipo" value="ida+vuelta">
+                        <label for="tipo">Destino</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label class="text">Escribe Latitud</label>
+                        <input type="text" id="Latitud" name="Latitud" value="Latitud">Latitud <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                    <label class="label">Escribe Longitud</label>
+                    <input type="text" id="Longitud" name="Longitud" value="Longitud">Longitud <br>
+                    </td>
+                </tr>
+               <tr>
+                    <td>
+                    <label class="label">Escribe el Nombre</label>
+                    <input type="text" id="Nombre" name="Nombre" value="Nombre">Nombre <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Aqui hay que hacer bien las tasas maquinas
+                        <label class="label">Seleccione una tasa</label>
+                        <select class="select" name="tasa">
+                            <% while (rs.next()) { %>
+                            <% for (int i = 1; i <= rsmd.getColumnCount(); i++) { %>
+                            <%-- Recuperamos los valores de las columnas que
+                            corresponden a cada uno de los registros de la
+                            tabla. Hay que recoger correctamente el tipo de
+                            dato que contiene la columna --%>
+                                <option><%= rs.getString(i)%></option>
+                                <%}
+                            }%>
+                        </select>
+                    </td>
+                </tr>
+                <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">Confirmar<br>
             </form>
 
+            <br/>
+            <br/>
             
-
             <br/>
-            <br/>
-            <input class="myButton" type="submit" value="Confirmar">
             <button class="myButton" onclick="location.href='./Login.jsp'">Volver al menú principal</button>
-
-
-
+            <br/>
+            <br/>
         </section>
+        <%
+
+        c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
+        s = c.createStatement();
+
+        if (request.getParameter("Confirmar") != null) {
+            String Origen = request.getParameter("Origen");
+            String Destino = request.getParameter("Destino");
+            String Nombre = request.getParameter("Nombre");
+            Double precioBillete = Double.valueOf(request.getParameter("PrecioBillete"));
+
+            //para ver si existe la tabla
+            s.executeQuery("SELECT VUELO.ID_VUELO FROM APP.VUELO");
+            rs = s.getResultSet();
+            rsmd = rs.getMetaData();
+
+            while (rs.next()) {
+                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                    if (rs.getString(i).equals(vuelo)) {
+                        registro = false;
+                        out.println("<script type=\"text/javascript\">");
+                        out.println("alert('Fly already register');");
+                        out.println("location='ModificarVuelos.jsp';");
+                        out.println("</script>");
+                    }
+                }
+            }
+
+            if (registro) {
+                s.executeUpdate("UPDATE APP.VUELO SET FECHA=" + fecha + ",  PRECIO_BILLETE='" + precioBillete + "' ");
+                response.sendRedirect("/PracticaFinal/AcceptQuery.html");
+            }
+        }
+    %>
+    }
     </body>
 
 </html>
