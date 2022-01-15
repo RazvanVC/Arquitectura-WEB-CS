@@ -13,7 +13,7 @@
         <title>Ver Compra</title>
     </head>
     <body>
-        <!--Insertar logo-->
+         <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
         <section>
             <div>
                 <h2>Billete</h2>
