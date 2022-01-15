@@ -5,19 +5,27 @@
         <link rel="stylesheet" href="./css/style.css">
     </head>
     <body>
-        <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
+        <header class="encabezado">
+            <h1> <img src="/src/main/resources/META-INF/images/logo.png" alt="Logo" width="300" height="300"> </h1>
+            <h2>¡BIENBENIDO ADMINISTRADOR!</h2>
+        </header>
 
-        <h2>¡Bienvenido Administrador!</h2>
-
-        <button class="myButton" onclick="location.href='./AnnadirAeropuerto.jsp'" >
-
-        <button class="myButton" onclick="location.href='./AnnadirVuelos.jsp'" >
-
-        <button class="myButton" onclick="location.href='./ModificarVuelo.jsp'" >
-
-        <button class="myButton" onclick="location.href='./ConsultarDatos.jsp'">
-        
-        <button class="myButton" onclick="location.href='./Login.jsp'">Volver al menú principal</button>
+        <section class="seccion">
+            <main>
+                <br/>
+                <br/>
+                <button class="myButton" onclick="location.href='./AnnadirAeropuerto.jsp'" >Añadir Aeropuerto</button>
+                <br/>
+                <button class="myButton" onclick="location.href='./AnnadirVuelos.jsp'" >Añadir Vuelos</button>
+                <br/>
+                <button class="myButton" onclick="location.href='./ModificarVuelo.jsp'" >Modificar el Vuelo</button>
+                <br/>
+                <button class="myButton" onclick="location.href='./ConsultarDatos.jsp'">Consultar los Datos</button>    
+                <br/>
+                <button class="myButton" onclick="location.href='./Login.jsp'">Volver al menú principal</button>
+                <br/>
+            </main>
+        </section>
     </body>
     
 </html>
