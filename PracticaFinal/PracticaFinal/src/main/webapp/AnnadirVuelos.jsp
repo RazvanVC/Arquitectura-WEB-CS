@@ -124,55 +124,64 @@
             </form>
         </section> 
 
-    <%  if (request.getParameter("Confirmar") != null) {
-            String username = request.getParameter("username");   //ESTO HAY QUE BURRARLO KBRON
-            String password = request.getParameter("password");
+    <%
+        c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
+        s = c.createStatement();
 
-            if (username.equals("admin@admin.com") && password.equals("admin")) {
-                response.sendRedirect("/PracticaFinal/v9.html");
-            } else {
-                rs = s.executeUpdate("SELECT USUARIOS.CONTRASEÑA FROM APP.USUARIOS WHERE USUARIOS.CORREO='" + username + "' FETCH FIRST 1 ROWS ONLY");
-                if (rs.next()) {
-                    String BDPassword = rs.getString("CONTRASEÑA");
-                    if (BDPassword.equals(password)) {
-                        response.sendRedirect("/V4.jsp");
+        -------rs = s.executeUpdate("INSERT INTO APP.ORIGEN.NOMBRE VALUES(origen);");
+        -------rs = s.executeUpdate("INSERT INTO APP.DESTINO.NOMBRE VALUES(destino)");
+
+        if (request.getParameter("Confirmar") != null) {
+            
+            String origen = request.getParameter("LugarOrigen");
+            String destino = request.getParameter("LugarDestino");
+            Date inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("FechaInicio"));
+            Date final = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("FechaFinal"));
+            Integer.valueOf("Temporalidad");
+
+            
+            rs = s.executeUpdate("INSERT INTO APP.VUELO SET FECHAFECHA_INICIO VALUES (inicio) ");
+            
+            
+
+
+            String vuelo = request.getParameter("Vuelo");
+            String fecha = request.getParameter("Fecha");
+            System.out.println(fecha);
+            Double precioBillete = Double.valueOf(request.getParameter("PrecioBillete"));
+
+                //para ver si existe la tabla
+                s.executeQuery("SELECT VUELO.ID_VUELO FROM APP.VUELO");
+                rs = s.getResultSet();
+                rsmd = rs.getMetaData();
+
+                while (rs.next()) {
+                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
+                        if (rs.getString(i).equals(vuelo)) {
+                            registro = false;
+                            out.println("<script type=\"text/javascript\">");
+                            out.println("alert('Fly already register');");
+                            out.println("location='ModificarVuelos.jsp';");
+                            out.println("</script>");
+                        }
                     }
-                } else {
-                    out.println("<script type=\"text/javascript\">");
-                    out.println("alert('User or password incorrect');");
-                    out.println("location='Login.jsp';");
-                    out.println("</script>");
                 }
-            }
-        } //Hasta aqui se Burra KBRON
 
-        String origen = request.getParameter("LugarOrigen");
-        String destino = request.getParameter("LugarDestino");
-        Date inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("FechaInicio"));
-        Date final = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("FechaFinal"));
-        Integer.valueOf("Temporalidad");
+        }
 
-        rs = s.executeUpdate("INSERT INTO APP.ORIGEN.NOMBRE VALUES(origen);");
-        rs = s.executeUpdate("INSERT INTO APP.DESTINO.NOMBRE VALUES(destino)");
-        
-        bucle en caso unica fecha se mete la fecha inicio en tabla vuelos, en caso de que haya temporalidad hay que hacer el bucle (de fecha de inicio a fecha de fin) y
-        la primera fecha es la fecha de inicio y la fecha final que ha de ser mayor a la f.inicio siendo 1 de enero del 2022
-        Ejemplo temporalidad de 3: fecha fin por ejemplo 31 enero, pillamos desde el 1 de enero,1  si, 2 no 3 no, 4 si, 5 no...
-        rs = s.executeUpdate("INSERT INTO ")
+        s.executeUpdate("UPDATE APP.VUELO SET FECHA=" + fecha + ",  PRECIO_BILLETE='" + precioBillete + "' ");
+        response.sendRedirect("/PracticaFinal/AcceptQuery.html");
 
-        
-        auxFechaFinal= Final
-        if(temporalidad==null)
+        //BUCLEAMOS EL FOR PARA LA FECHA FINAL, PERO ESTA NO SE ALMACENA EN LA BASE DE DATOS
         rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_INICIO VALUES (inicio) ");
         else
-        while(inicio<auxFechaFinal)
+        while(inicio<Final)
         rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_INICIO VALUES (inicio) ");
         rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_FINAL VALUES (final) ");
         inicio= add(inicio+temporalidad)
-        Final= add(final+temporalidad)
         
         
-        %>
+    %>
     }
     </body>        
 </html>
