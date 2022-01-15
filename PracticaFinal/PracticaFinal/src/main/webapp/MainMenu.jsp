@@ -20,19 +20,16 @@
         <!--Menu de navegacion con 3 botones-->
         <section class="seccion" id="1">
             <br/>
-            <h2>Bienvenido {nombre} !</h2>
+            <h2>Bienvenido <%= session.getAttribute("Nombre") %></h2>
             <br/>
             <button class="myButton" onclick="location.href='ComprarBilletes.jsp'">Comprar Billetes</button>
             <br/>
-            
             <br/>
             <button class="myButton" onclick="location.href='ConsultaDatos.jsp'">Consulta mis Billetes</button>
             <br/>
-            
             <br/>
             <button class="myButton" onclick="location.href='CalcularGanancia.jsp'">Salir</button>
             <br/>
-            
             <br/>
         </section>
         

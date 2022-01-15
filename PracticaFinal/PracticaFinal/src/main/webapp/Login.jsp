@@ -57,7 +57,7 @@
                             session.setAttribute("Nombre", rs.getString("NOMBRE"));
                             session.setAttribute("Numero_Viajes", rs.getInt("NUMERO_VIAJES"));
                             session.setAttribute("ID_Session", session.getId());
-                            response.sendRedirect("/MainMenu.jsp");
+                            response.sendRedirect("/PracticaFinal/MainMenu.jsp");
                         }
                     } else {
                         out.println("<script type=\"text/javascript\">");
