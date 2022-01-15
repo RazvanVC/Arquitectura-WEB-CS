@@ -33,6 +33,7 @@
                 //c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample?,?app?,?app");
                 s = c.createStatement();
                 rs = s.executeQuery("SELECT * FROM APP.BILLETES WHERE DNI_COMPRADOR =" + request.getSession().getAttribute("DNI").toString());
+
                 rsmd = rs.getMetaData();
             %>
             <h1> Datos de tabla de Circuitos </h1>
