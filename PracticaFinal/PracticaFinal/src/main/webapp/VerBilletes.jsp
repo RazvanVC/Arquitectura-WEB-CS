@@ -10,12 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ver Billetes</title>
-    </head>
-    <body>
-       <link rel="stylesheet" href="./css/style.css">
-    </head>
+        <link rel="stylesheet" href="./css/style.css">
+    </head>    
     <body>
         <section class="seccion">
+         <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
         <%@ page import="java.sql.*" %>
             <%!
                 // Declaraciones de las variables utilizadas para la
