@@ -6,6 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>JSP Page</title>
     <link rel="stylesheet" href="./css/style.css">
+    <script src="main.js"></script>
     </head>
 
     <body>
@@ -38,17 +39,17 @@
             <table>
                 <tr>
                     <td>
-                        <input type="radio" id="Ruta" name="Ruta" value="Ruta">Ruta del vuelo <br>
+                        <input type="radio" id="Ruta" name="Ruta" value="Ruta">Ruta <br>
                     </td>
                     <td>
-                        <input type="radio" id="Vuelo" name="Vuelo" value="Vuelo">Destino del vuelo <br>
+                        <input type="radio" id="Vuelo" name="Vuelo" value="Vuelo">Vuelo <br>
                     </td>
                 </tr>
                 <tr>
                     <td>
                         <h1>Origen del Vuelo</h1>
-                        <label class="label">Seleccione Origen del Vuelo a modificar: </label>
-                        <select class="select" name="origen">
+                        <label class="label">Seleccione Origen del Lugar: </label>
+                        <select class="select" name="LugarOrigen">
                         <% while (rs.next()) { %>
                         <% for (int i = 1; i <= rsmd.getColumnCount(); i++) { %>
                         <%-- Recuperamos los valores de las columnas que
@@ -67,8 +68,8 @@
                     </td>
                     <td>
                         <h2>Destino del Vuelo</h2>
-                        <label class="label">Seleccione Destino del Vuelo a modificar: </label>
-                        <select class="select" name="destino">
+                        <label class="label">Seleccione Destino del Destino: </label>
+                        <select class="select" name="LugarDestino">
                         <% while (rs.next()) { %>
                         <% for (int i = 1; i <= rsmd.getColumnCount(); i++) { %>
                         <%-- Recuperamos los valores de las columnas que
@@ -82,14 +83,6 @@
                     </td>
                 </tr>
 
-                <tr>
-                    <td>
-                        <input type="date" id="FechaOrigen" name="FechaOrigen" value="" required>Origen del vuelo <br>
-                    </td>
-                    <td>
-                        <input type="date" id="FechaDestino" name="FechaDestino" value="" required>Destino del vuelo <br>
-                    </td>
-                </tr>
                 <tr>
                     <td>
                         <input type="date" id="FechaInicio" name="FechaInicio" value="" required>Inicio del vuelo <br>
@@ -152,9 +145,17 @@
             }
         } //Hasta aqui se Burra KBRON
 
-        Date origen = request.getParameter("FechaOrigen");
-        Date destino =request.getParameter("FechaDestino");
+        String origen = request.getParameter("LugarOrigen");
+        String destino = request.getParameter("LugarDestino");
+        Date inicio = request.getParameter("FechaInicio");
 
+        rs = s.executeUpdate("INSERT INTO ORIGEN.NOMBRE VALUES(origen);");
+        rs = s.executeUpdate("INSERT INTO DESTINO.NOMBRE VALUES(destino)");
+        
+        bucle en caso unica fecha se mete la fecha inicio en tabla vuelos, en caso de que haya temporalidad hay que hacer el bucle (de fecha de inicio a fecha de fin) y
+        la primera fecha es la fecha de inicio y la fecha final que ha de ser mayor a la f.inicio siendo 1 de enero del 2022
+        Ejemplo temporalidad de 3: fecha fin por ejemplo 31 enero, pillamos desde el 1 de enero,1  si, 2 no 3 no, 4 si, 5 no...
+        rs = s.executeUpdate("INSERT INTO ")
 
     }
     </body>        

@@ -3,15 +3,15 @@
 function swapRutaVuelo(nombre) {
     switch (nombre) {
         case "Ruta del Vuelo":
-            $("#FechaOrigen").show();
-            $("#FechaDestino").show();
+            $("#LugarOrigen").show();
+            $("#LugarDestino").show();
             $("#FechaInicio").show();
             $("#FechaFinal").show();
             $("#Temporalidad").show();
             break;
         case "Destino del Vuelo":
-            $("#FechaOrigen").show();
-            $("#FechaDestino").show();
+            $("#LugarOrigen").show();
+            $("#LugarDestino").show();
             $("#FechaInicio").show();
             $("#FechaFinal").hide();
             $("#Temporalidad").hide();
