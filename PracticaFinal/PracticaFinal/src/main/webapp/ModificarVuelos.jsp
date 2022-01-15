@@ -40,36 +40,22 @@
                     <tr>
                         <h1>Vuelo</h1>
                         <label class="label">Vuelo: </label>
-                        <select class="select" name="origen">
-                        <% while (rs.next()) { %>
-                        <% for (int i = 1; i <= rsmd.getColumnCount(); i++) { %>
-                        <%-- Recuperamos los valores de las columnas que
-                        corresponden a cada uno de los registros de la
-                        tabla. Hay que recoger correctamente el tipo de
-                        dato que contiene la columna --%>
-                        <option><%= rs.getString(i)%></option>
-                        <%}
-                        }%>
-                        </select>
-                        <%
-                        s = c.createStatement();
-                        rs = s.executeQuery("SELECT VUELO.ID_VUELO  ID FROM APP.VUELO");
-                        rsmd = rs.getMetaData();
-                        %>
+                        <input type="text" id="idvuelo" name="idvuelo" value="" required>ID VUELO
                     </tr>
 
                     <tr>
-                        <input type="date" id="Fecha" name="Fecha" value="" required>Fecha <br>
-                    </tr>
 
+                        <input type="date" id="Fecha" name="Fecha" value="" required>Fecha 
+                    </tr>
+                    <br/>
                     <tr>
-                        <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>Precio Billete <br>
+                        <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>Precio Billete 
                     </tr>
-
+                    <br/>
                     <tr>
-                        <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">Confirmar<br>
+                        <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">Confirmar
                     </tr>
-
+                    <br/>
                     <tr>
                         <button class="myButton" onclick="location.href='./v9'">Volver a la página de Administrador</button>
                     </tr>

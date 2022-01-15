@@ -150,8 +150,8 @@
         String destino = request.getParameter("LugarDestino");
         Date inicio = request.getParameter("FechaInicio");
 
-        rs = s.executeUpdate("INSERT INTO ORIGEN.NOMBRE VALUES(origen);");
-        rs = s.executeUpdate("INSERT INTO DESTINO.NOMBRE VALUES(destino)");
+        rs = s.executeUpdate("INSERT INTO APP.ORIGEN.NOMBRE VALUES(origen);");
+        rs = s.executeUpdate("INSERT INTO APP.DESTINO.NOMBRE VALUES(destino)");
         
         bucle en caso unica fecha se mete la fecha inicio en tabla vuelos, en caso de que haya temporalidad hay que hacer el bucle (de fecha de inicio a fecha de fin) y
         la primera fecha es la fecha de inicio y la fecha final que ha de ser mayor a la f.inicio siendo 1 de enero del 2022
