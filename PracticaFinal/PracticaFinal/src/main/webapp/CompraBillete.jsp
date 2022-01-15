@@ -33,7 +33,7 @@
             <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
             <h1>Compra Billete</h1>
             <!-- Tabla que continene 7 filas. La primera son dos comboboxes la segunda son dos radio buttons, la tercera dos capos de fecha, y la quinta un boton-->
-            <form action="ConfirmarBillete.jsp" method="POST">
+            <form action="ConfirmarBillete.jsp" method="post">
                 <table>
                     <tr>
                         <td>
