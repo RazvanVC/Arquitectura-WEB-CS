@@ -14,11 +14,14 @@
     </head>
     <body>
         <!--Logo de la empresa-->
-       <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
+        <header class="encabezado">
+            <h1> <img src="/src/main/resources/META-INF/images/logo.png" alt="Logo" width="300" height="300"> </h1>
+            <h2>Bienvenido <%= session.getAttribute("Nombre") %></h2>
+        </header>
+       
         <!--Menu de navegacion con 3 botones-->
         <section class="seccion" id="1">
             <br/>
-            <h2>Bienvenido <%= session.getAttribute("Nombre") %></h2>
             <br/>
             <button class="myButton" onclick="location.href='ComprarBilletes.jsp'">Comprar Billetes</button>
             <br/>

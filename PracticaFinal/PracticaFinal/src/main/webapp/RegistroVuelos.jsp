@@ -13,6 +13,13 @@
         <title>Registro Vuelos</title>
     </head>
     <body>
-         <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
+        <header class="encabezado">
+            <h1> <img src="/src/main/resources/META-INF/images/logo.png" alt="Logo" width="300" height="300"> </h1>
+            <h2>Registro de los vuelos</h2>
+        </header>
+
+        <section class="seccion">
+            
+        </section>
     </body>
 </html>

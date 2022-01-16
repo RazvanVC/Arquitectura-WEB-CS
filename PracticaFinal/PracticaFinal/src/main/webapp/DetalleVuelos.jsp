@@ -13,6 +13,11 @@
         <title>Detalle Vuelos</title>
     </head>
     <body>
+
+        <header class="encbezado">
          <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
+         <h2> DETALLE DE LOS VUELOS</h2>
+        </header>
+
     </body>
 </html>

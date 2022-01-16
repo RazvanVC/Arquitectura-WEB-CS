@@ -22,29 +22,43 @@
     </head>
 
     <body>
-        <section class="section">
+        <header class="encabezado">
+            <h1> <img src="/src/main/resources/META-INF/images/logo.png" alt="Logo" width="300" height="300"> </h1>
+            <h2>MODIFICAR VUELO</h2>
+        </header>
+
+        <section class="seccion">
             <form action=''>
+                <br/>
+                <br/>
                 <table>
                     <tr>
-                    <h1>Vuelo</h1>
-                    <label class="label">Vuelo:</label>
-                    <input type="text" id="Vuelo" name="Vuelo" value"" required>Vuelo a modificar <br>
-                    </tr>
-
-                    <tr>
-                    <input type="date" id="Fecha" name="Fecha" value="" required>Fecha 
+                        <label class="label2">Vuelo a modificar:</label>
+                        <input type="text" id="Vuelo" name="Vuelo" value"" required>
                     </tr>
                     <br/>
-                    <tr>
-                    <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>Precio Billete <br>
-                    </tr>
                     <br/>
                     <tr>
-                    <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">Confirmar<br>
+                        <label class="label2">Fecha a modificar:</label>
+                        <input type="date" id="Fecha" name="Fecha" value="" required> 
                     </tr>
                     <br/>
+                    <br/>
                     <tr>
-                    <button class="myButton" onclick="location.href = './AdminMainMenu.html'">Volver a la página de Administrador</button>
+                        <label class="label2">Precio del Billete:</label>
+                        <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>
+                    </tr>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <tr>
+                        <input type="submit" id="Confirmar" name="Confirmar" value="  Confimar  ">
+                    </tr>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <tr>
+                        <button class="myButton2" onclick="location.href = './AdminMainMenu.html'">Volver a la página de Administrador</button>
                     </tr>
                 </table>
             </form>
@@ -84,6 +98,6 @@
                 }
             }
         %>
-        }
+
     </body>
 </html>

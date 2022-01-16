@@ -30,8 +30,12 @@
         c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app"); 
         %>
         <section class="seccion">
-            <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
-            <h1>Compra Billete</h1>
+            <header class="encabezado">
+                <h1> <img src="/resources/META-INF/images/logo.png" alt="Logo" width="300" height="300"> </h1>
+
+                <h2>COMPRA DE BILLETES</h2>
+            </header>
+
             <!-- Tabla que continene 7 filas. La primera son dos comboboxes la segunda son dos radio buttons, la tercera dos capos de fecha, y la quinta un boton-->
             <form action="ConfirmarBillete.jsp" method="post">
                 <table>
@@ -121,9 +125,12 @@
                             </select>
                         </td>
                     </tr>
+                   
                     <tr>
                         <td>
-                            <input type="submit" value="Consultar" class="myButton" name="consultar">
+                            <br/>
+                            <br/>
+                            <input type="submit" value="Consultar" class="myButton2" name="consultar">
                         </td>
                     </tr>
                 </table>

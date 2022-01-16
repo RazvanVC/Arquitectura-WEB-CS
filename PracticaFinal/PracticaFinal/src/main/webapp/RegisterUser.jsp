@@ -23,47 +23,57 @@
         <title>JSP Page</title>
         <link rel="stylesheet" href="./css/style.css">
     </head>
-    <body>
+    <body class="body2">
     <section class="seccion">
-        <h1>Bienvenido</h1>
+        <header class="encabezado">
+            <h2>Bienvenido</h2>
+        </header>
+        <br/>
+        <br/>
+        <br/>
+
         <p>
-            Para registrarse hay que poner los datos que se requieren a continuacion
+            Para registrarse hay que poner los datos que se requieren a continuacion:
         </p>
+        <br/>
+        
         <!-- Formulario de registro de usuario, se requiere Nombre, Apellidos, DNI, Direccion, Email, Password, ConfirmarPassword  -->
-        <form action="">
-        <table>
-            <tr>
-                <td>Nombre:</td>
-                <td><input type="text" name="nombre" id="nombre"/></td>
-            </tr>
-            <tr>
-                <td>Apellidos:</td>
-                <td><input type="text" name="apellidos" id="apellidos"/></td>
-            </tr>
-            <tr>
-                <td>DNI:</td>
-                <td><input type="text" name="dni" id="dni"/></td>
-            </tr>
-            <tr>
-                <td>Direccion:</td>
-                <td><input type="text" name="direccion" id="direccion"/></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><input type="email" name="email" id="email"/></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type="password" name="password" id="password"/></td>
-            </tr>
-            <tr>
-                <td>Confirmar Password:</td>
-                <td><input type="password" name="confirmarPassword" id="confirmarPassword"/></td>
-            </tr>
-            <tr>
+        <section class="seccion3">
+            <form action="">
+                <table>
+                    <tr>
+                        <td>Nombre:</td>
+                        <td><input type="text" name="nombre" id="nombre"/></td>
+                    </tr>
+                    <tr>
+                        <td>Apellidos:</td>
+                        <td><input type="text" name="apellidos" id="apellidos"/></td>
+                    </tr>
+                    <tr>
+                        <td>DNI:</td>
+                        <td><input type="text" name="dni" id="dni"/></td>
+                    </tr>
+                    <tr>
+                        <td>Direccion:</td>
+                        <td><input type="text" name="direccion" id="direccion"/></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" name="email" id="email"/></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input type="password" name="password" id="password"/></td>
+                    </tr>
+                    <tr>
+                        <td>Confirmar Password:</td>
+                        <td><input type="password" name="confirmarPassword" id="confirmarPassword"/></td>
+                    </tr>
+                    
+                </table>
                 <td><input type="submit" value="Registrarse"/></td>
-            </tr>
-        </form>
+            </form>
+        </section>
     </section>
     <%
         c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
