@@ -17,7 +17,7 @@
     <body>
 
         <header class="encabezado">
-            <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
+            <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
             <h1>CONFIRMAR COMPRA DE BILLETES</h1>
         </header>
 
