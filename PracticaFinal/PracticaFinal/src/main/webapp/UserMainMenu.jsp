@@ -20,7 +20,7 @@
             <br/>
             <h2>Bienvenido <%= session.getAttribute("Nombre") %></h2>
             <br/>
-            <button class="myButton" onclick="location.href='ComprarBilletes.jsp'">Comprar Billetes</button>
+            <button class="myButton" onclick="location.href='CompraBillete.jsp'">Comprar Billetes</button>
             <br/>
             <br/>
             <button class="myButton" onclick="location.href='ConsultaDatos.jsp'">Consulta mis Billetes</button>
