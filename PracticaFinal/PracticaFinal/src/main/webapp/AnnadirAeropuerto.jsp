@@ -69,7 +69,7 @@
                     <input type="text" id="Longitud" name="Longitud" value="Longitud">Longitud <br>
                     </td>
                 </tr>
-               <tr>
+                <tr>
                     <td>
                     <label class="label">Escribe el Nombre</label>
                     <input type="text" id="Nombre" name="Nombre" value="Nombre">Nombre <br>
@@ -111,7 +111,7 @@
         if (request.getParameter("Confirmar") != null) {
             String Origen = request.getParameter("Origen");
             String Destino = request.getParameter("Destino");
-            String Nombre = request.getParameter("Nombre");
+            String Nombre = request.getParameter("Nombre"); 
             Double precioBillete = Double.valueOf(request.getParameter("PrecioBillete"));
 
             //para ver si existe la tabla
