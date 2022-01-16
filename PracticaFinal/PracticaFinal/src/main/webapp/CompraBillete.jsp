@@ -38,7 +38,7 @@
 
             <!-- Tabla que continene 7 filas. La primera son dos comboboxes la segunda son dos radio buttons, la tercera dos capos de fecha, y la quinta un boton-->
             <form action="">
-                <table>
+                <table class="table">
                     <tr>
                         <td>
                             <%
@@ -125,15 +125,8 @@
                             </select>
                         </td>
                     </tr>
-                   
-                    <tr>
-                        <td>
-                            <br/>
-                            <br/>
-                            <input type="submit" value="Consultar" class="myButton2" name="consultar">
-                        </td>
-                    </tr>
                 </table>
+                <input type="submit" value="Consultar" class="myButton" name="consultar">
             </form>
             <% 
             if (request.getParameter("consultar") != null){
