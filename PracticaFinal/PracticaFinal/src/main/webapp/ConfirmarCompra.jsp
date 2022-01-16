@@ -4,7 +4,18 @@
     Author     : PC
 --%>
 
+<%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%!
+    // Declaraciones de las variables utilizadas para la
+    // conexión a la base de datos y para la recuperación de
+    // datos de las tablas
+    Connection c;
+    Statement s;
+    ResultSet rs;
+    ResultSetMetaData rsmd;
+
+%>
 <!DOCTYPE html>
 <html>
 
@@ -20,22 +31,33 @@
             <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
             <h1>CONFIRMAR COMPRA DE BILLETES</h1>
         </header>
-
+        <%
+            int pasajeros = Integer.valueOf(session.getAttribute("pasajeros").toString());
+            
+            c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
+            s = c.createStatement();
+        %>
         <section class="seccion">
             <h3>Rellene su(s) billete(s)</h3>
             <section class="seccion2">
-                <form action="<%=request.getContextPath()%>/VerCompra.jsp" method="post">
+                <form action="" method="">
                     <fieldset>
                         <!---Todo esto se genera de forma dinámica dependiendo del número de usuarios--->
+                        <% int i = 1;
+                        while (i<=pasajeros) { %>
                         <div>
-                            <legend>Billetes</legend>
-                            <label for="Nombre">Nombre:</label>
-                            <input type="text" name="NombreBillete" id="NombreBillete" required="required" />
-                            <label for="Apellidos">Apellidos:</label>
-                            <input type="text" name="ApellidosBillete" id="ApellidosBillete" required="required" />
-                            <label for="DNI"> DNI:</label>
-                            <input type="text" name="DNIBillete" id="DNIBillete" required="DNI" />
+                            <legend>Billete <%=i%></legend>
+                            <label for="NombreBillete<%=i%>">Nombre:</label>
+                            <input type="text" name="NombreBillete<%=i%>" id="NombreBillete<%=i%>" required="required" />
+                            <label for="ApellidosBillete<%=i%>">Apellidos:</label>
+                            <input type="text" name="ApellidosBillete<%=i%>" id="ApellidosBillete<%=i%>" required="required" />
+                            <label for="DNIBillete<%=i%>"> DNI:</label>
+                            <input type="text" name="DNIBillete<%=i%>" id="DNIBillete<%=i%>" required="required" />
                         </div>
+                        <% 
+                            i++;
+                        }
+                        %>
                         <h2>VISA</h2>
                         <table>
                             <tr>
@@ -73,6 +95,9 @@
                         </table>
                         <input type="submit" value=" Comprar " />
                     </fieldset>
+                    <%
+                    
+                    %>
                 </form>  
             </section>
         </section>

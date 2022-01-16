@@ -212,15 +212,31 @@
                     if (tipo.equals("ida")) {
                         boolean nextIDA = false;
                         Date fIDA = Date.valueOf(fechaIDA);
-                        query = "SELECT VUELO.NUM_ASIENTOS FROM APP.VUELO WHERE VUELO.ORIGEN = '" + origen + "' AND VUELO.DESTINO = '" + destino + "' AND VUELO.FECHA = '" + fIDA + "'";
+                        query = "SELECT VUELO.NUM_ASIENTOS, VUELO.ID_VUELO, VUELO.PRECIO_BILLETE FROM APP.VUELO WHERE VUELO.ORIGEN = '" + origen + "' AND VUELO.DESTINO = '" + destino + "' AND VUELO.FECHA = '" + fIDA + "'";
                         rs = s.executeQuery(query);
+                        String id_vueloIDA = "";
+                        Double precio_billeteIDA = 0.0;
                         while (rs.next()) {
                             if (rs.getInt("NUM_ASIENTOS") > Integer.valueOf(request.getParameter("pasajeros"))) {
                                 nextIDA = true;
+                                id_vueloIDA = rs.getString("ID_VUELO");
+                                precio_billeteIDA = rs.getDouble("PRECIO_BILLETE");
+                                break;
                             }
                         }
                         if (nextIDA) {
+                            query = "SELECT USUARIO.NUMERO_VIAJES FROM APP.USUARIO WHERE USUARIO.DNI ='" + session.getAttribute("DNI").toString() + "'";
+                            rs = s.executeQuery(query);
+                            int numeroViajes = 0;
+                            while (rs.next()) {
+                                numeroViajes = rs.getInt("NUMERO_VIAJES");
+                            }
+                            if ((numeroViajes + 1) % 3 == 0) {
+                                precio_billeteIDA = precio_billeteIDA / 2;
+                            }
                             session.setAttribute("fechaIDA", fIDA);
+                            session.setAttribute("id_vueloIDA", id_vueloIDA);
+                            session.setAttribute("precio_billeteIDA", precio_billeteIDA);
                             session.setAttribute("pasajeros", request.getParameter("pasajeros"));
                             response.sendRedirect("/PracticaFinal/ConfirmarCompra.jsp");
                         }
@@ -230,23 +246,47 @@
                             boolean nextVUELTA = false;
                             Date fIDA = Date.valueOf(fechaIDA);
                             Date fVUELTA = Date.valueOf(fechaVUELTA);
-                            query = "SELECT VUELO.NUM_ASIENTOS FROM APP.VUELO WHERE VUELO.ORIGEN = '" + origen + "' AND VUELO.DESTINO = '" + destino + "' AND VUELO.FECHA = '" + fIDA + "'";
+                            query = "SELECT VUELO.NUM_ASIENTOS, VUELO.ID_VUELO, VUELO.PRECIO_BILLETE FROM APP.VUELO WHERE VUELO.ORIGEN = '" + origen + "' AND VUELO.DESTINO = '" + destino + "' AND VUELO.FECHA = '" + fIDA + "'";
                             rs = s.executeQuery(query);
+                            String id_vueloIDA = "";
+                            Double precio_billeteIDA = 0.0;
                             while (rs.next()) {
                                 if (rs.getInt("NUM_ASIENTOS") > Integer.valueOf(request.getParameter("pasajeros"))) {
                                     nextIDA = true;
+                                    id_vueloIDA = rs.getString("ID_VUELO");
+                                    precio_billeteIDA = rs.getDouble("PRECIO_BILLETE");
+                                    break;
                                 }
                             }
-                            query = "SELECT VUELO.NUM_ASIENTOS FROM APP.VUELO WHERE VUELO.ORIGEN = '" + destino + "' AND VUELO.DESTINO = '" + origen + "' AND VUELO.FECHA = '" + fVUELTA + "'";
+                            query = "SELECT VUELO.NUM_ASIENTOS, VUELO.ID_VUELO, VUELO.PRECIO_BILLETE FROM APP.VUELO WHERE VUELO.ORIGEN = '" + destino + "' AND VUELO.DESTINO = '" + origen + "' AND VUELO.FECHA = '" + fVUELTA + "'";
                             rs = s.executeQuery(query);
+                            String id_vueloVUELTA = "";
+                            Double precio_billeteVUELTA = 0.0;
                             while (rs.next()) {
                                 if (rs.getInt("NUM_ASIENTOS") > Integer.valueOf(request.getParameter("pasajeros"))) {
                                     nextVUELTA = true;
+                                    id_vueloVUELTA = rs.getString("ID_VUELO");
+                                    precio_billeteVUELTA = rs.getDouble("PRECIO_BILLETE");
+                                    break;
                                 }
                             }
-                            if (nextIDA && nextVUELTA){
+                            if (nextIDA && nextVUELTA) {
+                                query = "SELECT USUARIO.NUMERO_VIAJES FROM APP.USUARIO WHERE USUARIO.DNI ='" + session.getAttribute("DNI").toString() + "'";
+                                rs = s.executeQuery(query);
+                                int numeroViajes = 0;
+                                while (rs.next()) {
+                                    numeroViajes = rs.getInt("NUMERO_VIAJES");
+                                }
+                                if ((numeroViajes + 1) % 3 == 0) {
+                                    precio_billeteIDA = precio_billeteIDA / 2;
+                                    precio_billeteVUELTA = precio_billeteVUELTA / 2;
+                                }
                                 session.setAttribute("fechaIDA", fIDA);
                                 session.setAttribute("fechaVUELTA", fVUELTA);
+                                session.setAttribute("id_vueloIDA", id_vueloIDA);
+                                session.setAttribute("id_vueloVUELTA", id_vueloVUELTA);
+                                session.setAttribute("precio_billeteIDA", precio_billeteIDA);
+                                session.setAttribute("precio_billeteVUELTA", precio_billeteVUELTA);
                                 session.setAttribute("pasajeros", request.getParameter("pasajeros"));
                                 response.sendRedirect("/PracticaFinal/ConfirmarCompra.jsp");
                             }
