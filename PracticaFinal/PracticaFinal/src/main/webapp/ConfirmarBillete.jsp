@@ -200,6 +200,7 @@
                 //System.out.println(request.getPa);
             if (request.getParameter("confirmar") != null){
                 String fechaIDA = request.getParameter("fechaIDA");
+                String fechaVUELTA = request.getParameter("fechaVuelta");
                 System.out.println("DENTRO DE REQUEST COMPRA BILLETES");
                 System.out.print(request.getParameter("fechaIDA"));
                 System.out.print(request.getParameter("fechaVUELTA"));
@@ -207,6 +208,19 @@
                 if (tipo.equals("ida")){
                     query = "SELECT VUELO.NUM_ASIENTOS FROM APP.VUELO WHERE VUELO.ORIGEN = '" + origen + "' AND VUELO.DESTINO = '" + destino + "' AND VUELO.FECHA = '" + fechaIDA + "'";
                     System.out.println(query);
+                } else {
+                    if (!fechaVUELTA.equals("No hay vuelos disponibles")){
+                        query = "SELECT VUELO.NUM_ASIENTOS FROM APP.VUELO WHERE VUELO.ORIGEN = '" + origen + "' AND VUELO.DESTINO = '" + destino + "' AND VUELO.FECHA = '" + fechaIDA + "'";
+                        System.out.println(query);
+                        query = "SELECT VUELO.NUM_ASIENTOS FROM APP.VUELO WHERE VUELO.ORIGEN = '" + destino + "' AND VUELO.DESTINO = '" + origen + "' AND VUELO.FECHA = '" + fechaVUELTA + "'";
+                        System.out.println(query);
+                    } else {
+                        out.println("<script type=\"text/javascript\">");
+                        out.println("alert('Return Flights not available');");
+                        out.println("location='ConfirmarBillete.jsp';");
+                        out.println("</script>");
+                    }
+                    
                 }
                 /*
                 Date fechaVuelta = null;
