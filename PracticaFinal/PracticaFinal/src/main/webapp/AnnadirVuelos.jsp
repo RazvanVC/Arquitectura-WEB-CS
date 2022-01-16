@@ -11,7 +11,7 @@
 
     <body>
         <section class="section">
-         <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
+         <h1> <img src="./img/logo.png" alt="Logo" width="100" height="100"> </h1>
             <%@ page import="java.sql.*" %>
             <%!
                 // Declaraciones de las variables utilizadas para la
@@ -167,7 +167,6 @@
                     }
                 }
 
-<<<<<<< HEAD
         String origen = request.getParameter("LugarOrigen");
         String destino = request.getParameter("LugarDestino");
         Date inicio = new SimpleDateFormat("yyyy-MM-dd").parse(request.getParameter("FechaInicio"));
@@ -184,20 +183,6 @@
         }
        
        
-=======
-        }
-
-        s.executeUpdate("UPDATE APP.VUELO SET FECHA=" + fecha + ",  PRECIO_BILLETE='" + precioBillete + "' ");
-        response.sendRedirect("/PracticaFinal/AcceptQuery.html");
-
-        //BUCLEAMOS EL FOR PARA LA FECHA FINAL, PERO ESTA NO SE ALMACENA EN LA BASE DE DATOS
-        rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_INICIO VALUES (inicio) ");
-        else
-        while(inicio<Final)
-        rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_INICIO VALUES (inicio) ");
-        rs = s.executeUpdate("INSERT INTO APP.VUELO.FECHA_FINAL VALUES (final) ");
-        inicio= add(inicio+temporalidad)
->>>>>>> 19a56ea12606669e20ba947e40da2c8f026f8f86
         
         
     %>

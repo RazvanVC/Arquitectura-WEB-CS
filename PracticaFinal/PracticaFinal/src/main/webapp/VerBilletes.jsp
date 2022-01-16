@@ -14,7 +14,7 @@
     </head>    
     <body>
         <section class="seccion">
-         <h1> <img src="/resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
+         <h1> <img src="./img/logo.png"  alt="Logo" width="100" height="100"> </h1>
         <%@ page import="java.sql.*" %>
             <%!
                 // Declaraciones de las variables utilizadas para la

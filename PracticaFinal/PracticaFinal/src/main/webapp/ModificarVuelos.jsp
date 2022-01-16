@@ -23,7 +23,7 @@
 
     <body>
         <header class="encabezado">
-            <h1> <img src="/src/main/resources/META-INF/images/logo.png" alt="Logo" width="300" height="300"> </h1>
+            <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
             <h2>MODIFICAR VUELO</h2>
         </header>
 

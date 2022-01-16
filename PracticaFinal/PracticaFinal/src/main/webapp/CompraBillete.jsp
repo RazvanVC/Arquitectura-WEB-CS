@@ -31,13 +31,13 @@
         %>
         <section class="seccion">
             <header class="encabezado">
-                <h1> <img src="/resources/META-INF/images/logo.png" alt="Logo" width="300" height="300"> </h1>
+                <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
 
                 <h2>COMPRA DE BILLETES</h2>
             </header>
 
             <!-- Tabla que continene 7 filas. La primera son dos comboboxes la segunda son dos radio buttons, la tercera dos capos de fecha, y la quinta un boton-->
-            <form action="ConfirmarBillete.jsp" method="post">
+            <form action="">
                 <table>
                     <tr>
                         <td>
@@ -109,7 +109,7 @@
                             </select>
                         </td>
                         <td>
-                            <select class="select" hidden id="formVuelta" name="MesVuelta">
+                            <select class="select" hidden id="formVuelta" name="MesVUELTA">
                                 <option value="1">Enero</option>
                                 <option value="2">Febrero</option>
                                 <option value="3">Marzo</option>
@@ -135,6 +135,17 @@
                     </tr>
                 </table>
             </form>
+            <% 
+            if (request.getParameter("consultar") != null){
+                session.setAttribute("origen", request.getParameter("origen"));
+                session.setAttribute("destino", request.getParameter("destino"));
+                session.setAttribute("tipo", request.getParameter("tipo"));
+                session.setAttribute("MesIDA", request.getParameter("MesIDA"));
+                session.setAttribute("MesVUELTA", request.getParameter("MesVUELTA"));
+                response.sendRedirect("/PracticaFinal/ConfirmarBillete.jsp");
+            }
+           
+            %>
         </section>
     </body>
 </html>
