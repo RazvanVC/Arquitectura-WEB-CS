@@ -24,7 +24,7 @@
         <title>Login</title>
     </head>
     <body>
-        <h1><img src="/resources/images/logo.png" alt="Logo" width="100" height="100"></h1>
+        <h1><img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="Logo" width="100" height="100"></h1>
         <section>
             <form action="">
                 <fieldset>
