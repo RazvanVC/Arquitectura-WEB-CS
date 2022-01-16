@@ -26,6 +26,7 @@
     <body class="body2">
         <section class="seccion">
             <header class="encabezado">
+                <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
                 <h2>Bienvenido</h2>
             </header>
             <br/>
