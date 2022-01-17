@@ -18,10 +18,10 @@
             <h2>Registro de los vuelos</h2>
         </header>
         <section class="seccion">
-            <form action="">
+            <form action="/PracticaFinal/DetallesVuelos.jsp" method="post">
                 <h2> Puedes buscar los datos de un vuelo en especifico aquí abajo: </h2>
-                        <label for="id_vuelo">Id_vuelo:</label>
-                        <input type="text" name="id_vuelo" id="id_vuelo"/>
+                        <label for="Id_vuelo">Id_vuelo:</label>
+                        <input type="text" name="Id_vuelo" id="Id_vuelo"/>
                         <input type="submit" value="Buscar"/>
                     </tr>
                 </table>
