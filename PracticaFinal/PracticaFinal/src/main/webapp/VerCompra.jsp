@@ -17,37 +17,110 @@
             <h1> <img src="./img/logo.png"  alt="Logo" width="300" height="300"> </h1>
             <h2>Ver Compra Realizada</h2>
         </header>
-
-        <section class="seccion2">
-            <div>
-                <h2>Billete</h2>
-                <table>
-                    <tr>
-                        <td>Id:</td>
-                        <td> Origen:</td>
-                    </tr>
-                    <tr>
-                        <td>Id Vuelo:</td>
-                        <td>Destino:</td>
-                    </tr>
-                    <tr>
-                        <td>Fecha Salida:</td>
-                    </tr>
-                    <tr>
-                        <td>Nombre y Apellidos:</td>
-                    </tr>
-                    <tr>
-                        <td>Dni:</td>
-                    </tr>
-                    <tr>
-                        <td>VISA:</td>
-                        <td>Precio:</td>
-                    </tr>
-                </table>
-            </div>
-        </section>
+        <!-- Se repite la seccion entera -->
+        <%
+            int i = 1;
+            int pasajeros = Integer.valueOf(session.getAttribute("pasajeros").toString());
+            String tipo = session.getAttribute("tipo").toString();
+            while (i <= pasajeros){
+                if(tipo.equals("ida")){
+        %>
+            <section class="seccion2">
+                <div>
+                    <h2>Billete IDA</h2>
+                    <table>
+                        <tr>
+                            <td>Id: <%= String.valueOf(session.getAttribute("IDBilleteIDA"+i)) %></td>
+                            <td> Origen: <%= String.valueOf(session.getAttribute("origen")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Id Vuelo: <%= String.valueOf(session.getAttribute("id_vueloIDA")) %></td>
+                            <td>Destino: <%= String.valueOf(session.getAttribute("destino")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Fecha Salida: <%= String.valueOf(session.getAttribute("fechaIDA")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre y Apellidos: <%= String.valueOf(session.getAttribute("NombreBillete"+i))+" "+ String.valueOf(session.getAttribute("ApellidosBillete"+i)) %></td>
+                        </tr>
+                        <tr>
+                            <td>DNI: <%= String.valueOf(session.getAttribute("DNIBillete"+i)) %></td>
+                        </tr>
+                        <tr>
+                            <td>VISA: <%= String.valueOf(session.getAttribute("VISA")) %></td>
+                            <td>Precio: <%= String.valueOf(session.getAttribute("precio_billeteIDA")) %></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>        
+        <%            
+                } else {
+        %>
+            <section class="seccion2">
+                <div>
+                    <h2>Billete IDA</h2>
+                    <table>
+                        <tr>
+                            <td>Id: <%= String.valueOf(session.getAttribute("IDBilleteIDA"+i)) %></td>
+                            <td> Origen: <%= String.valueOf(session.getAttribute("origen")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Id Vuelo: <%= String.valueOf(session.getAttribute("id_vueloIDA")) %></td>
+                            <td>Destino: <%= String.valueOf(session.getAttribute("destino")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Fecha Salida: <%= String.valueOf(session.getAttribute("fechaIDA")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre y Apellidos: <%= String.valueOf(session.getAttribute("NombreBillete"+i))+" "+ String.valueOf(session.getAttribute("ApellidosBillete"+i)) %></td>
+                        </tr>
+                        <tr>
+                            <td>DNI: <%= String.valueOf(session.getAttribute("DNIBillete"+i)) %></td>
+                        </tr>
+                        <tr>
+                            <td>VISA: <%= String.valueOf(session.getAttribute("VISA")) %></td>
+                            <td>Precio: <%= String.valueOf(session.getAttribute("precio_billeteIDA")) %></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+            <section class="seccion2">
+                <div>
+                    <h2>Billete VUELTA</h2>
+                    <table>
+                        <tr>
+                            <td>Id: <%= String.valueOf(session.getAttribute("IDBilleteVUELTA"+i)) %></td>
+                            <td> Origen: <%= String.valueOf(session.getAttribute("destino")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Id Vuelo: <%= String.valueOf(session.getAttribute("id_vueloVUELTA")) %></td>
+                            <td>Destino: <%= String.valueOf(session.getAttribute("origen")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Fecha Salida: <%= String.valueOf(session.getAttribute("fechaVUELTA")) %></td>
+                        </tr>
+                        <tr>
+                            <td>Nombre y Apellidos: <%= String.valueOf(session.getAttribute("NombreBillete"+i))+" "+ String.valueOf(session.getAttribute("ApellidosBillete"+i)) %></td>
+                        </tr>
+                        <tr>
+                            <td>DNI: <%= String.valueOf(session.getAttribute("DNIBillete"+i)) %></td>
+                        </tr>
+                        <tr>
+                            <td>VISA: <%= String.valueOf(session.getAttribute("VISA")) %></td>
+                            <td>Precio: <%= String.valueOf(session.getAttribute("precio_billeteVUELTA")) %></td>
+                        </tr>
+                    </table>
+                </div>
+            </section>
+        <%
+                }
+                i++;
+            }
+        %>
+        
+        
         <br/>
         <br/>
-        <button class="myButton" onclick="location.href = './MenuUsuario.jsp'">Continuar</button>
+        <button class="myButton" onclick="location.href = './UserMainMenu.jsp'">Continuar</button>
     </body>
 </html>

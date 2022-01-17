@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="java.util.Random"%>
-<%@page import="java.math.BigInteger"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%!
@@ -176,7 +175,7 @@
                             
                             //REDIRECCION A LA SIGUIENTE PANTALLA
                             session.setAttribute("VISA", VISA);
-                            response.sendRedirect("/PracticaFinal/UserMainMenu.jsp");
+                            response.sendRedirect("/PracticaFinal/VerCompra.jsp");
                         } else {
                             i = 1;
                             //Parametros generales para la insercion
