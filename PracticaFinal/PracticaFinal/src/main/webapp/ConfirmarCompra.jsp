@@ -101,6 +101,7 @@
                     <%
                     if (request.getParameter("comprar") != null) {
                         String tipo = session.getAttribute("tipo").toString();
+                        String query = "";
                         if (tipo.equals("ida")){
                             i = 1;
                             //Parametros generales para la insercion
@@ -114,28 +115,68 @@
                             
                             while (i<=pasajeros){
                                 //Random ID
-                                Random random = new Random();
-                                char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
-                                char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
-                                int nrandom1 = random.nextInt(10);
-                                int nrandom2 = random.nextInt(10);
-                                int nrandom3 = random.nextInt(10);
-                                char dnileter = dniComprador.charAt(8);
+                                String idBilleteIDA;
+                                Boolean idExists = true;
                                 
-                                String idBillete = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
-                               
-                                String campoNombre = "NombreBillete"+i;
-                                System.out.println(campoNombre);
+                                //GENERACION DEL ID RANDOM UNICO
+                                while (idExists) {
+                                    Random random = new Random();
+                                    char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
+                                    char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
+                                    int nrandom1 = random.nextInt(10);
+                                    int nrandom2 = random.nextInt(10);
+                                    int nrandom3 = random.nextInt(10);
+                                    char dnileter = dniComprador.charAt(8);
+                                
+                                    idBilleteIDA = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
+                                    
+                                    //COMPROBACION DE QUE NO EXISTA EL IDA RANDOM EN LA BD
+                                    query = "SELECT BILLETES.ID FROM APP.BILLETES WHERE BILLETES.ID = '"+idBilleteIDA+"' FETCH FIRST 1 ROWS ONLY";
+                                    rs = s.executeQuery(query);
+                                    if (rs.next()){
+                                        if (!idBilleteIDA.equals(rs.getString("ID"))) {
+                                            idExists = false;
+                                            session.setAttribute("IDBilleteIDA"+i, idBilleteIDA);
+                                        }
+                                    } else {
+                                        idExists = false;
+                                        session.setAttribute("IDBilleteIDA"+i, idBilleteIDA);
+                                    }
+                                }
+                                
+                                //PARAMETROS INDIVIDUALES
+                                idBilleteIDA = session.getAttribute("IDBilleteIDA"+i).toString();
                                 String nombre = request.getParameter("NombreBillete"+i);
                                 String apellido = request.getParameter("ApellidosBillete"+i);
                                 String dni = request.getParameter("DNIBillete"+i);
-                                String query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
-                                        + "values('"+idBillete+"','"+id_vueloIDA+"','"+origen+"','"+destino+"','"+fechaIDA+"','"+dni+"','"+nombre+"','"+apellido+"','"+VISA+"',"+precio_billeteIDA+",'"+dniComprador+"')";
+                                //INSERCION DE LOS DATOS EN LA BASE DE DATOS
+                                query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
+                                        + "values('"+ idBilleteIDA +"','"+ id_vueloIDA +"','"+ origen +"','"+ destino +"','"+ fechaIDA +"','"+ dni +"','"+ nombre +"','"+ apellido +"','"+ VISA +"',"+ precio_billeteIDA +",'"+ dniComprador +"')";
                                 s.executeUpdate(query);
+                                
+                                //GUARDADO DE DATOS INDIVIDUALES EN SESSION
+                                session.setAttribute("IDBilleteIDA"+i, idBilleteIDA);
+                                session.setAttribute("NombreBillete"+i, nombre);
+                                session.setAttribute("ApellidosBillete"+i, apellido);
+                                session.setAttribute("DNIBillete"+i, dni);
+                                
                                 i++;
                             }
                             
+                            //ACTUALIZACION DE TABLA USUARIOS
+                            query = "SELECT USUARIOS.NUMERO_VIAJES FROM APP.USUARIOS WHERE USUARIOS.DNI = '"+session.getAttribute("DNI").toString()+"'";
+                            rs = s.executeQuery(query);
+                            int numeroViajes = 0;
+                            if (rs.next()){
+                                numeroViajes = rs.getInt("NUMERO_VIAJES");
+                                numeroViajes++;
+                            }
+                            query = "UPDATE APP.USUARIOS SET USUARIOS.NUMERO_VIAJES = "+numeroViajes+" WHERE USUARIOS.DNI = '"+session.getAttribute("DNI").toString()+"'";
+                            s.executeUpdate(query);
                             
+                            //REDIRECCION A LA SIGUIENTE PANTALLA
+                            session.setAttribute("VISA", VISA);
+                            response.sendRedirect("/PracticaFinal/UserMainMenu.jsp");
                         } else {
                             i = 1;
                             //Parametros generales para la insercion
@@ -152,24 +193,52 @@
                             
                             while (i<=pasajeros){
                                 //Random ID
-                                Random random = new Random();
-                                char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
-                                char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
-                                int nrandom1 = random.nextInt(10);
-                                int nrandom2 = random.nextInt(10);
-                                int nrandom3 = random.nextInt(10);
-                                char dnileter = dniComprador.charAt(8);
+                                String idBilleteIDA;
+                                Boolean idExists = true;
                                 
-                                String idBillete = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
-                               
-                                String campoNombre = "NombreBillete"+i;
-                                System.out.println(campoNombre);
+                                //GENERACION DEL ID RANDOM UNICO
+                                while (idExists) {
+                                    Random random = new Random();
+                                    char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
+                                    char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
+                                    int nrandom1 = random.nextInt(10);
+                                    int nrandom2 = random.nextInt(10);
+                                    int nrandom3 = random.nextInt(10);
+                                    char dnileter = dniComprador.charAt(8);
+                                
+                                    idBilleteIDA = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
+                                    
+                                    //COMPROBACION DE QUE NO EXISTA EL ID RANDOM EN LA BD
+                                    query = "SELECT BILLETES.ID FROM APP.BILLETES WHERE BILLETES.ID = '"+idBilleteIDA+"' FETCH FIRST 1 ROWS ONLY";
+                                    rs = s.executeQuery(query);
+                                    if (rs.next()){
+                                        if (!idBilleteIDA.equals(rs.getString("ID"))) {
+                                            idExists = false;
+                                            session.setAttribute("IDBilleteIDA"+i, idBilleteIDA);
+                                        }
+                                    } else {
+                                        idExists = false;
+                                        session.setAttribute("IDBilleteIDA"+i, idBilleteIDA);
+                                    }
+                                }
+                                
+                                //PARAMETROS INDIVIDUALES
+                                idBilleteIDA = session.getAttribute("IDBilleteIDA"+i).toString();
                                 String nombre = request.getParameter("NombreBillete"+i);
                                 String apellido = request.getParameter("ApellidosBillete"+i);
                                 String dni = request.getParameter("DNIBillete"+i);
-                                String query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
-                                        + "values('"+ idBillete +"','"+ id_vueloIDA +"','"+ origen +"','"+ destino +"','"+ fechaIDA +"','"+ dni +"','"+ nombre +"','"+ apellido +"','"+ VISA +"',"+ precio_billeteIDA +",'"+ dniComprador +"')";
+                                //INSERCION DE LOS DATOS EN LA BASE DE DATOS
+                                System.out.println("FALLO EN LA QUERY DEL INSERT");
+                                query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
+                                        + "values('"+ idBilleteIDA +"','"+ id_vueloIDA +"','"+ origen +"','"+ destino +"','"+ fechaIDA +"','"+ dni +"','"+ nombre +"','"+ apellido +"','"+ VISA +"',"+ precio_billeteIDA +",'"+ dniComprador +"')";
                                 s.executeUpdate(query);
+                                
+                                //GUARDADO DE DATOS INDIVIDUALES EN SESSION
+                                session.setAttribute("IDBilleteIDA"+i, idBilleteIDA);
+                                session.setAttribute("NombreBillete"+i, nombre);
+                                session.setAttribute("ApellidosBillete"+i, apellido);
+                                session.setAttribute("DNIBillete"+i, dni);
+                                
                                 i++;
                             }
                             i = 1;
@@ -177,26 +246,68 @@
                             
                             while (i<=pasajeros){
                                 //Random ID
-                                Random random = new Random();
-                                char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
-                                char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
-                                int nrandom1 = random.nextInt(10);
-                                int nrandom2 = random.nextInt(10);
-                                int nrandom3 = random.nextInt(10);
-                                char dnileter = dniComprador.charAt(8);
+                                String idBilleteVUELTA;
+                                Boolean idExists = true;
                                 
-                                String idBillete = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
-                               
-                                String campoNombre = "NombreBillete"+i;
-                                System.out.println(campoNombre);
+                                //GENERACION DEL ID RANDOM UNICO
+                                while (idExists) {
+                                    Random random = new Random();
+                                    char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
+                                    char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
+                                    int nrandom1 = random.nextInt(10);
+                                    int nrandom2 = random.nextInt(10);
+                                    int nrandom3 = random.nextInt(10);
+                                    char dnileter = dniComprador.charAt(8);
+                                
+                                    idBilleteVUELTA = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
+                                    
+                                    //COMPROBACION DE QUE NO EXISTA EL ID RANDOM EN LA BD
+                                    query = "SELECT BILLETES.ID FROM APP.BILLETES WHERE BILLETES.ID = '"+idBilleteVUELTA+"' FETCH FIRST 1 ROWS ONLY";
+                                    rs = s.executeQuery(query);
+                                    if (rs.next()){
+                                        if (!idBilleteVUELTA.equals(rs.getString("ID"))) {
+                                            idExists = false;
+                                            session.setAttribute("IDBilleteIDA"+i, idBilleteVUELTA);
+                                        }
+                                    } else {
+                                        idExists = false;
+                                        session.setAttribute("IDBilleteIDA"+i, idBilleteVUELTA);
+                                    }
+                                }
+                                
+                                //PARAMETROS INDIVIDUALES
+                                idBilleteVUELTA = session.getAttribute("IDBilleteIDA"+i).toString();
                                 String nombre = request.getParameter("NombreBillete"+i);
                                 String apellido = request.getParameter("ApellidosBillete"+i);
                                 String dni = request.getParameter("DNIBillete"+i);
-                                String query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
-                                        + "values('"+ idBillete +"','"+ id_vueloVUELTA +"','"+ destino +"','"+ origen +"','"+ fechaVUELTA +"','"+ dni +"','"+ nombre +"','"+ apellido +"','"+ VISA +"',"+ precio_billeteVUELTA +",'"+ dniComprador +"')";
+                                //INSERCION DE LOS DATOS EN LA BASE DE DATOS
+                                query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
+                                        + "values('"+ idBilleteVUELTA +"','"+ id_vueloVUELTA +"','"+ origen +"','"+ destino +"','"+ fechaVUELTA +"','"+ dni +"','"+ nombre +"','"+ apellido +"','"+ VISA +"',"+ precio_billeteVUELTA +",'"+ dniComprador +"')";
                                 s.executeUpdate(query);
+                                
+                                //GUARDADO DE DATOS INDIVIDUALES EN SESSION
+                                session.setAttribute("IDBilleteVUELTA"+i, idBilleteVUELTA);
+                                session.setAttribute("NombreBillete"+i, nombre);
+                                session.setAttribute("ApellidosBillete"+i, apellido);
+                                session.setAttribute("DNIBillete"+i, dni);
+                                
                                 i++;
                             }
+                            System.out.println("FALLO EN LA QUERY DEL ACTUALIZADOR DE DATOS");
+                            //ACTUALIZACION DE TABLA USUARIOS
+                            query = "SELECT USUARIOS.NUMERO_VIAJES FROM APP.USUARIOS WHERE USUARIOS.DNI = '"+session.getAttribute("DNI").toString()+"'";
+                            rs = s.executeQuery(query);
+                            int numeroViajes = 0;
+                            if (rs.next()){
+                                numeroViajes = rs.getInt("NUMERO_VIAJES");
+                                numeroViajes++;
+                            }
+                            query = "UPDATE APP.USUARIOS SET USUARIOS.NUMERO_VIAJES = "+numeroViajes+" WHERE USUARIOS.DNI = '"+session.getAttribute("DNI").toString()+"'";
+                            s.executeUpdate(query);
+                            
+                            //REDIRECCION A LA SIGUIENTE PANTALLA
+                            session.setAttribute("VISA", VISA);
+                            response.sendRedirect("/PracticaFinal/VerCompra.jsp");
                         }
                     }
                     %>
@@ -205,6 +316,6 @@
         </section>
         <br/>
         
-        <button class="myButton" onclick="location.href = './CompraBilletes.jsp'">Volver</button>
+        <button class="myButton" onclick="location.href = './CompraBillete.jsp'">Volver</button>
     </body>
 </html>
