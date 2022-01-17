@@ -67,7 +67,7 @@
                     </tr>
                     <tr>
                     <td><label for="GANANCIAS">Ganancias:</label></td>
-                    <td class="td2"><%= rs.getDouble("GANANCIAS")%></td> 
+                    <td class="td2"><%= rs.getDouble("GANANCIAS")%>€</td> 
                     </tr>
                     <tr>
                     <td><label for="TASAS_TOTALES_AEROPUERTOS">Tasas Totales Aeropuestos:</label></td>  
