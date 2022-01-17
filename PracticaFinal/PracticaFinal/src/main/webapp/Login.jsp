@@ -39,7 +39,7 @@
                     <input type="submit" value="Login" name="login"/>
                 </fieldset>
             </form>
-            <a href="/PracticaFinal/RegisterUser.jsp"></a>
+            <button class="myButton3" onclick="location.href = './RegisterUser.jsp'">Volver</button>
         </section>
 
         <%
