@@ -8,7 +8,7 @@
     Statement s;
     ResultSet rs;
     ResultSetMetaData rsmd;
-    Boolean registro = true;
+    Boolean registro = false;
 %>
 
 <!DOCTYPE html>
@@ -33,32 +33,32 @@
                 <br/>
                 <table>
                     <tr>
-                        <label class="label2">Vuelo a modificar:</label>
-                        <input type="text" id="Vuelo" name="Vuelo" value"" required>
+                    <label class="label2">Vuelo a modificar:</label>
+                    <input type="text" id="Vuelo" name="Vuelo" value"" required>
                     </tr>
                     <br/>
                     <br/>
                     <tr>
-                        <label class="label2">Fecha a modificar:</label>
-                        <input type="date" id="Fecha" name="Fecha" value="" required> 
+                    <label class="label2">Fecha a modificar:</label>
+                    <input type="date" id="Fecha" name="Fecha" value="" required> 
                     </tr>
                     <br/>
                     <br/>
                     <tr>
-                        <label class="label2">Precio del Billete:</label>
-                        <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>
-                    </tr>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <tr>
-                        <input type="submit" id="Confirmar" name="Confirmar" value="  Confimar  ">
+                    <label class="label2">Precio del Billete:</label>
+                    <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>
                     </tr>
                     <br/>
                     <br/>
                     <br/>
                     <tr>
-                        <button class="myButton2" onclick="location.href = './AdminMainMenu.html'">Volver a la página de Administrador</button>
+                    <input type="submit" id="Confirmar" name="Confirmar" value="  Confimar  ">
+                    </tr>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <tr>
+                    <button class="myButton2" onclick="location.href = './AdminMainMenu.html'">Volver a la página de Administrador</button>
                     </tr>
                 </table>
             </form>
@@ -81,20 +81,24 @@
                 rsmd = rs.getMetaData();
 
                 while (rs.next()) {
-                    for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                        if (rs.getString(i).equals(vuelo)) {
-                            registro = false;
-                            out.println("<script type=\"text/javascript\">");
-                            out.println("alert('Fly already register');");
-                            out.println("location='ModificarVuelos.jsp';");
-                            out.println("</script>");
-                        }
+                    if (rs.getString("ID_VUELO").equals(vuelo)) {
+                        registro = true;
                     }
                 }
 
                 if (registro) {
-                    s.executeUpdate("UPDATE APP.VUELO SET FECHA=" + fecha + ",  PRECIO_BILLETE='" + precioBillete + "' ");
+                    Date dFecha = Date.valueOf(fecha);
+                    System.out.println(dFecha + " - " + dFecha.getClass());
+                    String query = "UPDATE APP.VUELO SET VUELO.FECHA='" + dFecha + "', VUELO.PRECIO_BILLETE=" + precioBillete + " WHERE VUELO.ID_VUELO = '" + vuelo + "'";
+                    System.out.println (query);
+                    s.executeUpdate(query);
+                    
                     response.sendRedirect("/PracticaFinal/AcceptQuery.html");
+                } else {
+                    out.println("<script type=\"text/javascript\">");
+                    out.println("alert('No Fly Found');");
+                    out.println("location='ModificarVuelos.jsp';");
+                    out.println("</script>");
                 }
             }
         %>

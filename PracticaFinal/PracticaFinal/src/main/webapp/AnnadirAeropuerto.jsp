@@ -124,10 +124,10 @@
                 if (registro) {
                     if(tipo.equals("origen")){
                         s.executeUpdate("INSERT INTO APP.ORIGEN (NOMBRE, LATITUD, LONGITUD,TASA) values ('"+Nombre+"',"+Latitud+","+Longitud+","+tasa+")");
-                        response.sendRedirect("/PracticaFinal/AdminMainMenu.html");
+                        response.sendRedirect("/PracticaFinal/AcceptQuery.html");
                     } else if (tipo.equals("destino")){
                         s.executeUpdate("INSERT INTO APP.DESTINO (NOMBRE, LATITUD, LONGITUD,TASA) values ('"+Nombre+"',"+Latitud+","+Longitud+","+tasa+")");
-                        response.sendRedirect("/PracticaFinal/AdminMainMenu.html");
+                        response.sendRedirect("/PracticaFinal/AcceptQuery.html");
                     } else {
                         out.println("<script type=\"text/javascript\">");
                             out.println("alert('Name already register');");
