@@ -140,5 +140,10 @@
            
             %>
         </section>
+        <br/>
+        <button class="myButton3" onclick="location.href = './UserMainMenu.jsp'">Volver</button>
+        <br/>
+        <br/>
+        
     </body>
 </html>

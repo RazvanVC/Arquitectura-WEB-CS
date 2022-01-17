@@ -36,37 +36,28 @@
             <form action="">
                 <table>
                     <tr>
-                        <td>
-                            <input type="radio" name="tipo" value="origen" checked>
-                            <label for="tipo">ORIGEN</label>
-                        </td>
-                        <td>
-                            <input type="radio" name="tipo" value="destino">
-                            <label for="tipo">DESTINO</label>
-                        </td>
+                        <td><input type="radio" name="tipo" value="origen" checked> <label for="tipo">ORIGEN</label></td>
+                            
+                        <td><input type="radio" name="tipo" value="destino"><label for="tipo">DESTINO</label></td>
                     </tr>
                     <tr>
                         <td>
                             <label class="label2">Escribe Latitud    </label>
-                            <input type="text" id="Latitud" name="Latitud" value="Latitud"><br>
+                            <input class="select3" type="number" min="-180" max="180 "id="Latitud" name="Latitud" value="0" required><br>
                         </td>
-                    </tr>
-                    <tr>
                         <td>
                             <label class="label2">Escribe Longitud    </label>
-                            <input type="text" id="Longitud" name="Longitud" value="Longitud"> <br>
+                            <input class="select3" type="number" min="-90" max="90" id="Longitud" name="Longitud" value="0" required> <br>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <label class="label2">Escribe el Nombre    </label>
-                            <input type="text" id="Nombre" name="Nombre" value="Nombre"> <br>
+                            <input class="select3" type="text" id="Nombre" name="Nombre" value="" required> <br>
                         </td>
-                    </tr>
-                    <tr>
                         <td>
                             <label class="label2">Seleccione una tasa    </label>
-                            <select class="select2" name="tasa">
+                            <select class="select3" name="tasa" required>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -80,13 +71,12 @@
                             </select>
                         </td>
                     </tr>
+                    <tr>
+                        
+                    </tr>
                 </table>
-                <input type="submit" id="Confirmar" name="Confirmar" value="  Confirmar  "><br>
+                <input class="myButton" type="submit" id="Confirmar" name="Confirmar" value="  Confirmar  "><br>
             </form>
-
-            <br/>
-            <br/>
-
             <br/>
             <button class="myButton" >Volver al menú principal</button>
             <br/>

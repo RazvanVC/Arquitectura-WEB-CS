@@ -58,8 +58,6 @@
                         dato que contiene la columna --%>
                         <% if (i == 5) {%>
                         <td class="td2"><%= rs.getDate(i)%></td>
-                        <% } else if (i==9) {%>
-                        <td class="td2"><%= rs.getBigDecimal(i)%></td>
                         <% } else if (i==10){%>
                         <td class="td2"><%= rs.getInt(i)%></td>
                         <% } else {%>
