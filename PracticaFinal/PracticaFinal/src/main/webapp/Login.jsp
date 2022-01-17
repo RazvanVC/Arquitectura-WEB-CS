@@ -39,7 +39,8 @@
                     <input type="submit" value="Login" name="login"/>
                 </fieldset>
             </form>
-            <button class="myButton3" onclick="location.href = './RegisterUser.jsp'">Volver</button>
+            <br/>
+            <button class="myButton3" onclick="location.href = './RegisterUser.jsp'">Registrarse</button>
         </section>
 
         <%
