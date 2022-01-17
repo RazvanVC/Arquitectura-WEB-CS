@@ -4,6 +4,7 @@
     Author     : razvanvc
 --%>
 
+<%@page import="java.util.Enumeration"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%!
@@ -90,9 +91,6 @@
                                 <option id="<%= rs.getDate("FECHA").toString()%>"><%= rs.getDate("FECHA").toString()%></option>
 
                                 <%
-                                        System.out.println(rs.getDate("FECHA").getClass());
-                                        System.out.println(rs.getDate("FECHA").toString().getClass());
-                                        System.out.println(rs.getDate("FECHA").toString());
                                     }
                                 } else {
                                 %>
@@ -203,7 +201,7 @@
                 //System.out.println(request.getPa);
                 if (request.getParameter("confirmar") != null) {
                     String fechaIDA = request.getParameter("fechaIDA");
-                    String fechaVUELTA = request.getParameter("fechaVuelta");
+                    String fechaVUELTA = request.getParameter("fechaVUELTA");
                     System.out.println("DENTRO DE REQUEST COMPRA BILLETES");
                     System.out.print(request.getParameter("fechaIDA"));
                     System.out.print(request.getParameter("fechaVUELTA"));
@@ -225,7 +223,7 @@
                             }
                         }
                         if (nextIDA) {
-                            query = "SELECT USUARIO.NUMERO_VIAJES FROM APP.USUARIO WHERE USUARIO.DNI ='" + session.getAttribute("DNI").toString() + "'";
+                            query = "SELECT USUARIOS.NUMERO_VIAJES FROM APP.USUARIOS WHERE USUARIOS.DNI ='" + session.getAttribute("DNI").toString() + "'";
                             rs = s.executeQuery(query);
                             int numeroViajes = 0;
                             while (rs.next()) {
@@ -271,7 +269,7 @@
                                 }
                             }
                             if (nextIDA && nextVUELTA) {
-                                query = "SELECT USUARIO.NUMERO_VIAJES FROM APP.USUARIO WHERE USUARIO.DNI ='" + session.getAttribute("DNI").toString() + "'";
+                                query = "SELECT USUARIOS.NUMERO_VIAJES FROM APP.USUARIOS WHERE USUARIOS.DNI ='" + session.getAttribute("DNI").toString() + "'";
                                 rs = s.executeQuery(query);
                                 int numeroViajes = 0;
                                 while (rs.next()) {

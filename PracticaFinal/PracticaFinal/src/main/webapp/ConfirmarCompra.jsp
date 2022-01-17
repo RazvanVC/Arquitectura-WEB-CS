@@ -4,6 +4,8 @@
     Author     : PC
 --%>
 
+<%@page import="java.util.Random"%>
+<%@page import="java.math.BigInteger"%>
 <%@page import="java.sql.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%!
@@ -43,7 +45,8 @@
                 <form action="" method="">
                     <fieldset>
                         <!---Todo esto se genera de forma dinámica dependiendo del número de usuarios--->
-                        <% int i = 1;
+                        <% 
+                        int i = 1;
                         while (i<=pasajeros) { %>
                         <div>
                             <legend>Billete <%=i%></legend>
@@ -93,10 +96,109 @@
                                     </td>
                                 </tr>
                         </table>
-                        <input type="submit" value=" Comprar " />
+                        <input type="submit" value="Comprar" name="comprar" />
                     </fieldset>
                     <%
-                    
+                    if (request.getParameter("comprar") != null) {
+                        String tipo = session.getAttribute("tipo").toString();
+                        if (tipo.equals("ida")){
+                            i = 1;
+                            //Parametros generales para la insercion
+                            String id_vueloIDA = session.getAttribute("id_vueloIDA").toString();
+                            String origen = session.getAttribute("origen").toString();
+                            String destino = session.getAttribute("destino").toString();
+                            Date fechaIDA = Date.valueOf(session.getAttribute("fechaIDA").toString());
+                            String VISA = request.getParameter("NumeroVisa");
+                            Double precio_billeteIDA = Double.valueOf(session.getAttribute("precio_billeteIDA").toString());
+                            String dniComprador = session.getAttribute("DNI").toString();
+                            
+                            while (i<=pasajeros){
+                                //Random ID
+                                Random random = new Random();
+                                char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
+                                char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
+                                int nrandom1 = random.nextInt(10);
+                                int nrandom2 = random.nextInt(10);
+                                int nrandom3 = random.nextInt(10);
+                                char dnileter = dniComprador.charAt(8);
+                                
+                                String idBillete = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
+                               
+                                String campoNombre = "NombreBillete"+i;
+                                System.out.println(campoNombre);
+                                String nombre = request.getParameter("NombreBillete"+i);
+                                String apellido = request.getParameter("ApellidosBillete"+i);
+                                String dni = request.getParameter("DNIBillete"+i);
+                                String query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
+                                        + "values('"+idBillete+"','"+id_vueloIDA+"','"+origen+"','"+destino+"','"+fechaIDA+"','"+dni+"','"+nombre+"','"+apellido+"','"+VISA+"',"+precio_billeteIDA+",'"+dniComprador+"')";
+                                s.executeUpdate(query);
+                                i++;
+                            }
+                            
+                            
+                        } else {
+                            i = 1;
+                            //Parametros generales para la insercion
+                            String id_vueloIDA = session.getAttribute("id_vueloIDA").toString();
+                            String id_vueloVUELTA = session.getAttribute("id_vueloVUELTA").toString();
+                            String origen = session.getAttribute("origen").toString();
+                            String destino = session.getAttribute("destino").toString();
+                            Date fechaIDA = Date.valueOf(session.getAttribute("fechaIDA").toString());
+                            Date fechaVUELTA = Date.valueOf(session.getAttribute("fechaVUELTA").toString());
+                            String VISA = request.getParameter("NumeroVisa");
+                            Double precio_billeteIDA = Double.valueOf(session.getAttribute("precio_billeteIDA").toString());
+                            Double precio_billeteVUELTA = Double.valueOf(session.getAttribute("precio_billeteVUELTA").toString());
+                            String dniComprador = session.getAttribute("DNI").toString();
+                            
+                            while (i<=pasajeros){
+                                //Random ID
+                                Random random = new Random();
+                                char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
+                                char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
+                                int nrandom1 = random.nextInt(10);
+                                int nrandom2 = random.nextInt(10);
+                                int nrandom3 = random.nextInt(10);
+                                char dnileter = dniComprador.charAt(8);
+                                
+                                String idBillete = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
+                               
+                                String campoNombre = "NombreBillete"+i;
+                                System.out.println(campoNombre);
+                                String nombre = request.getParameter("NombreBillete"+i);
+                                String apellido = request.getParameter("ApellidosBillete"+i);
+                                String dni = request.getParameter("DNIBillete"+i);
+                                String query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
+                                        + "values('"+ idBillete +"','"+ id_vueloIDA +"','"+ origen +"','"+ destino +"','"+ fechaIDA +"','"+ dni +"','"+ nombre +"','"+ apellido +"','"+ VISA +"',"+ precio_billeteIDA +",'"+ dniComprador +"')";
+                                s.executeUpdate(query);
+                                i++;
+                            }
+                            i = 1;
+                            //Parametros generales para la insercion
+                            
+                            while (i<=pasajeros){
+                                //Random ID
+                                Random random = new Random();
+                                char randomizedCharacter1 = (char) (random.nextInt(26) + 'a');
+                                char randomizedCharacter2 = (char) (random.nextInt(26) + 'a');
+                                int nrandom1 = random.nextInt(10);
+                                int nrandom2 = random.nextInt(10);
+                                int nrandom3 = random.nextInt(10);
+                                char dnileter = dniComprador.charAt(8);
+                                
+                                String idBillete = String.valueOf(randomizedCharacter1).toUpperCase()+String.valueOf(randomizedCharacter2).toUpperCase()+String.valueOf(nrandom1)+String.valueOf(nrandom2)+String.valueOf(nrandom3)+dnileter;
+                               
+                                String campoNombre = "NombreBillete"+i;
+                                System.out.println(campoNombre);
+                                String nombre = request.getParameter("NombreBillete"+i);
+                                String apellido = request.getParameter("ApellidosBillete"+i);
+                                String dni = request.getParameter("DNIBillete"+i);
+                                String query = "INSERT INTO APP.BILLETES (ID, ID_VUELO, ORIGEN, DESTINO, FECHA, DNI, NOMBRE, APELLIDOS, NUMERO_VISA, PRECIO_BILLETE, DNI_COMPRADOR) "
+                                        + "values('"+ idBillete +"','"+ id_vueloVUELTA +"','"+ destino +"','"+ origen +"','"+ fechaVUELTA +"','"+ dni +"','"+ nombre +"','"+ apellido +"','"+ VISA +"',"+ precio_billeteVUELTA +",'"+ dniComprador +"')";
+                                s.executeUpdate(query);
+                                i++;
+                            }
+                        }
+                    }
                     %>
                 </form>  
             </section>
