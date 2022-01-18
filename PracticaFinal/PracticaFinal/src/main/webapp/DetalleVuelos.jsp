@@ -41,7 +41,10 @@
         }
         rs = s.executeQuery("SELECT * FROM APP.VUELO WHERE VUELO.ID_VUELO = '" + request.getParameter("id_vuelo") + "' FETCH FIRST 1 ROWS ONLY");
         rs.next();
-        double Media_Ocupacion = (rs.getInt("NUM_PASAJEROS") / rs.getInt("NUM_ASIENTOS"));
+        
+        double NUMPASAJEROS = rs.getInt("NUM_PASAJEROS");
+        double NUMASIENTOS =  rs.getInt("NUM_ASIENTOS");
+        double Media_Ocupacion = NUMASIENTOS/NUMPASAJEROS;
     %>
     <header class="encabezado">
         <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
@@ -49,7 +52,7 @@
     </header>
     <section class="seccion">
         <h2> Datos sobre el vuelo:</h2>
-        <table>
+        <table class="table2">
             <tr>
                 <td><label for="Origen">Origen:</label></td>
                 <td class="td2"><%= rs.getString("ORIGEN")%></td>
@@ -88,7 +91,7 @@
             </tr>
             <tr>
                 <td><label for="Media_Ocupacion">Media Ocupacion:</label></td>
-                <td class="td2"><%=Media_Ocupacion%></td>  
+                <td class="td2"><%= Media_Ocupacion %> %</td>  
             </tr>
             <tr><td>Lista Pasajeros</td></tr>
             <tr>
