@@ -34,8 +34,12 @@
 
 
         %>
+        <header class="encabezado">
+         <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
+         <h2>Añadir Vuelos</h2>
+        </header>
+        
         <section class="seccion">
-            <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
             <form action="">
                 <table class="table4">
                     <tr class="tr4">
@@ -51,8 +55,15 @@
                     <tr class="tr4">
                         <%                            rs = s.executeQuery("SELECT ORIGEN.NOMBRE FROM APP.ORIGEN");
                         %>
-                        <td>
+                        <td class="td">
                             <h1>Origen del Vuelo</h1>
+                        </td>
+                        <td class="td">
+                            <h1>Destino del Vuelo</h1>
+                        </td>
+                    </tr>
+                        <tr class="tr5">
+                        <td class="td3">
                             <label >Seleccione Origen del Lugar: </label>
                             <select name="LugarOrigen">
                                 <% while (rs.next()) {%>
@@ -70,8 +81,7 @@
                         <%
                             rs = s.executeQuery("SELECT DESTINO.NOMBRE FROM APP.DESTINO");
                         %>
-                        <td>
-                            <h2>Destino del Vuelo</h2>
+                        <td class="td3">
                             <label>Seleccione Destino del Destino: </label>
                             <select name="LugarDestino">
                                 <% while (rs.next()) {%>
@@ -87,19 +97,19 @@
                         </td>
                     </tr>
 
-                    <tr class="tr4">
-                        <td>
+                    <tr class="tr5">
+                        <td class="td3">
                             <label for="FechaFinal" id="lblFechaInicioT">Fecha inicio temporalidad</label>
                             <label for="FechaFinal" id="lblFechaInicioV" hidden="">Fecha vuelo</label>
                             <input type="date" id="FechaInicio" name="FechaInicio" value="" required>
                         </td>
-                        <td>
+                        <td class="td3">
                             <label for="FechaFinal" id="lblFechaFinal">Fecha fin temporalidad</label>
                             <input type="date" id="FechaFinal" name="FechaFinal" value="">
                         </td>
                     </tr>
-                    <tr>
-                        <td>
+                    <tr class="tr5">
+                        <td class="td3">
                             <label for="Temporalidad" id="lblTemporalidad" >Temporalidad: </label>
                             <input type="number" id="Temporalidad" name="Temporalidad" value="1" min="1">
                         </td>
@@ -121,18 +131,21 @@
                             <input type="number" id="PrecioBillete" name="PrecioBillete" value="100" hidden>
                         </td>
                     </tr> -->
-                    <tr clas=tr2>
-                        <td class="td2">
+                    <tr class=tr4>
+                        <td class="td3">
                             <label for="PrecioBillete" id="lblPrecio" >Precio: </label>
                             <input type="number" id="PrecioBillete" name="PrecioBillete" value="100" >
                         </td>
                     </tr>
                     <tr class="tr4">
-                        <td>
+                        <td class="td3"> </td>
+                        <td class="td3">
                             <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">
                         </td>
                     </tr>
                 </table>
+                 <br/> 
+                 <br/>
                 <button class="myButton2" onclick="location.href = './v9'">Volver a la página de Administrador</button>
             </form> 
         </section> 

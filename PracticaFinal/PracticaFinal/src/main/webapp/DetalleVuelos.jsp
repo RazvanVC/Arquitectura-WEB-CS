@@ -44,7 +44,7 @@
         double Media_Ocupacion = (rs.getInt("NUM_PASAJEROS") / rs.getInt("NUM_ASIENTOS"));
     %>
     <header class="encabezado">
-        <h1> <img src="./img/logo.png" alt="Logo" width="100" height="100"> </h1>
+        <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
         <h2> DETALLE DE LOS VUELOS</h2>
     </header>
     <section class="seccion">

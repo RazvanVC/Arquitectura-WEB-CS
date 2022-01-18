@@ -2,7 +2,7 @@
     margin:  0;
     padding: 0;
     box-sizing: border-box;
-  }
+  }      
 
 body {  
     background-image:linear-gradient(to right, #2255ff,  #adfffb,
@@ -93,11 +93,20 @@ tr{
 .tr4{
     text-align: center;
     font-weight: 50;
-    font-size: 10px;
+    font-size: 20px;
     width: 20%;
     height: 20%;
     
 }
+.tr5{
+    text-align: left;
+    font-weight: 50;
+    font-size: 20px;
+    width: 20%;
+    height: 20%;
+    
+}
+
 
 
 
@@ -113,14 +122,14 @@ tr{
 }
 
 .td3{
-    text-align: center;
+    text-align: left;
     font-weight: 100;
-    font-size: 200px;
+    font-size: 20px;
     margin-left: 50%;
     width: 40%;
     height: 40%;
-    border: 1px solid rgb(0, 0, 0);
-    background-color: #fffec7;
+   
+    
 }
 
 th{
