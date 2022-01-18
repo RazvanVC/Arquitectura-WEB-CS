@@ -71,7 +71,7 @@
                             <td><input type="password" name="confirmarPassword" id="confirmarPassword"/></td>
                         </tr>
                     </table>
-                    <input type="submit" value="Registrarse" name="login"/>
+                    <input class="mybutton2" type="submit" value="Registrarse" name="login"/>
                 </form>
             </section>
             <%
