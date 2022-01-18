@@ -33,7 +33,7 @@
             <section class="seccion2">
                 <div>
                     <h2>Billete IDA</h2>
-                    <table>
+                    <table style="background: white; max-width: -webkit-fill-available; margin: 0% ">
                         <tr>
                             <td>Id: <%= String.valueOf(session.getAttribute("IDBilleteIDA"+i)) %></td>
                             <td> Origen: <%= String.valueOf(session.getAttribute("origen")) %></td>
@@ -64,7 +64,7 @@
             <section class="seccion2">
                 <div>
                     <h2>Billete IDA</h2>
-                    <table>
+                    <table style="background: white; max-width: -webkit-fill-available; margin: 0% ">
                         <tr>
                             <td>Id: <%= String.valueOf(session.getAttribute("IDBilleteIDA"+i)) %></td>
                             <td> Origen: <%= String.valueOf(session.getAttribute("origen")) %></td>
@@ -92,7 +92,7 @@
             <section class="seccion2">
                 <div>
                     <h2>Billete VUELTA</h2>
-                    <table>
+                    <table style="background: white; max-width: -webkit-fill-available; margin: 0% ">
                         <tr>
                             <td>Id: <%= String.valueOf(session.getAttribute("IDBilleteVUELTA"+i)) %></td>
                             <td> Origen: <%= String.valueOf(session.getAttribute("destino")) %></td>

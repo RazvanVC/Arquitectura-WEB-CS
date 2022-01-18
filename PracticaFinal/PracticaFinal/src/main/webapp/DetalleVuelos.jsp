@@ -24,7 +24,7 @@
         <title>Detalle Vuelos</title>
     </head>
 
-    <%
+    <% try {
         // Inicialización de las variables necesarias para la
         // conexión a la base de datos y realización de consultas
         c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
@@ -110,6 +110,8 @@
         </table>
         <button class="myButton2" onclick="location.href = './AdminMainMenu.html'">Volver a la página de Administrador</button>
     </section>
-
+            <%} catch (Exception e){
+            response.sendRedirect("/PracticaFinal/ErrorQuery.html");
+        } %>
 
 </html>

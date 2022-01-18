@@ -7,14 +7,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <%!
-                // Declaraciones de las variables utilizadas para la
-                // conexión a la base de datos y para la recuperación de
-                // datos de las tablas
-
-                Connection c;
-                Statement s;
-                ResultSet rs;
-                ResultSetMetaData rsmd;
+    // Declaraciones de las variables utilizadas para la
+    // conexión a la base de datos y para la recuperación de
+    // datos de las tablas
+    Connection c;
+    Statement s;
+    ResultSet rs;
+    ResultSetMetaData rsmd;
 %>
 <!DOCTYPE html>
 <html>
@@ -27,7 +26,7 @@
     <body>
 
         <header class="encabezado">
-        
+
             <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
             <h2>Añadir Aeropuerto</h2>
         </header>
@@ -37,7 +36,7 @@
                 <table>
                     <tr>
                         <td><input type="radio" name="tipo" value="origen" checked> <label for="tipo">ORIGEN</label></td>
-                            
+
                         <td><input type="radio" name="tipo" value="destino"><label for="tipo">DESTINO</label></td>
                     </tr>
                     <tr>
@@ -72,74 +71,74 @@
                         </td>
                     </tr>
                     <tr>
-                        
+
                     </tr>
                 </table>
                 <input class="myButton" type="submit" id="Confirmar" name="Confirmar" value="  Confirmar  "><br>
             </form>
             <br/>
-            <button class="myButton" >Volver al menú principal</button>
+            <button class="myButton" onclick="location.href='./AdminMainMenu.html'">Volver al menú principal</button>
             <br/>
             <br/>
 
         </section>
 
         <%
-            c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
-            s = c.createStatement();
+            try {
+                c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
+                s = c.createStatement();
 
-            if (request.getParameter("Confirmar") != null) {
-                String tipo = request.getParameter("tipo");
-                String Nombre = request.getParameter("Nombre"); 
-                Double Latitud = Double.valueOf(request.getParameter("Latitud"));
-                Double Longitud = Double.valueOf(request.getParameter("Longitud"));
-                int tasa = Integer.valueOf(request.getParameter("tasa"));
-                boolean registro = true;
-                //para ver si existe la tabla
-                s.executeQuery("SELECT ORIGEN.NOMBRE FROM APP.ORIGEN");
-                rs = s.getResultSet();
-                rsmd = rs.getMetaData();
+                if (request.getParameter("Confirmar") != null) {
+                    String tipo = request.getParameter("tipo");
+                    String Nombre = request.getParameter("Nombre");
+                    Double Latitud = Double.valueOf(request.getParameter("Latitud"));
+                    Double Longitud = Double.valueOf(request.getParameter("Longitud"));
+                    int tasa = Integer.valueOf(request.getParameter("tasa"));
+                    boolean registro = true;
+                    //para ver si existe la tabla
+                    s.executeQuery("SELECT ORIGEN.NOMBRE FROM APP.ORIGEN");
+                    rs = s.getResultSet();
+                    rsmd = rs.getMetaData();
 
-                while (rs.next()) {
-                    if(rs.getString("NOMBRE").equals(Nombre)){
-                        out.println("<script type=\"text/javascript\">");
+                    while (rs.next()) {
+                        if (rs.getString("NOMBRE").equals(Nombre)) {
+                            out.println("<script type=\"text/javascript\">");
                             out.println("alert('Name already register');");
                             out.println("location='AnnadirAeropuerto.jsp';");
                             out.println("</script>");
-                        registro=false;
+                            registro = false;
+                        }
                     }
-                }
-                s.executeQuery("SELECT DESTINO.NOMBRE FROM APP.DESTINO");
-                rs = s.getResultSet();
-                while (rs.next()) {
-                    if(rs.getString("NOMBRE").equals(Nombre)){
-                        out.println("<script type=\"text/javascript\">");
+                    s.executeQuery("SELECT DESTINO.NOMBRE FROM APP.DESTINO");
+                    rs = s.getResultSet();
+                    while (rs.next()) {
+                        if (rs.getString("NOMBRE").equals(Nombre)) {
+                            out.println("<script type=\"text/javascript\">");
                             out.println("alert('Name already register');");
                             out.println("location='AnnadirAeropuerto.jsp';");
                             out.println("</script>");
-                        registro=false;
+                            registro = false;
+                        }
                     }
-                }
 
-                if (registro) {
-                    if(tipo.equals("origen")){
-                        s.executeUpdate("INSERT INTO APP.ORIGEN (NOMBRE, LATITUD, LONGITUD,TASA) values ('"+Nombre+"',"+Latitud+","+Longitud+","+tasa+")");
-                        response.sendRedirect("/PracticaFinal/AcceptQuery.html");
-                    } else if (tipo.equals("destino")){
-                        s.executeUpdate("INSERT INTO APP.DESTINO (NOMBRE, LATITUD, LONGITUD,TASA) values ('"+Nombre+"',"+Latitud+","+Longitud+","+tasa+")");
-                        response.sendRedirect("/PracticaFinal/AcceptQuery.html");
-                    } else {
-                        out.println("<script type=\"text/javascript\">");
+                    if (registro) {
+                        if (tipo.equals("origen")) {
+                            s.executeUpdate("INSERT INTO APP.ORIGEN (NOMBRE, LATITUD, LONGITUD,TASA) values ('" + Nombre + "'," + Latitud + "," + Longitud + "," + tasa + ")");
+                            response.sendRedirect("/PracticaFinal/AcceptQuery.html");
+                        } else if (tipo.equals("destino")) {
+                            s.executeUpdate("INSERT INTO APP.DESTINO (NOMBRE, LATITUD, LONGITUD,TASA) values ('" + Nombre + "'," + Latitud + "," + Longitud + "," + tasa + ")");
+                            response.sendRedirect("/PracticaFinal/AcceptQuery.html");
+                        } else {
+                            out.println("<script type=\"text/javascript\">");
                             out.println("alert('Name already register');");
                             out.println("location='AnnadirAeropuerto.jsp';");
                             out.println("</script>");
+                        }
                     }
                 }
-
-                
+            } catch (Exception e) {
+                response.sendRedirect("/PracticaFinal/ErrorQuery.html");
             }
-
-
         %>
     </body>
 

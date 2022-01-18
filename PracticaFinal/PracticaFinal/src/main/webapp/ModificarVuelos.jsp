@@ -46,13 +46,13 @@
                     <br/>
                     <tr>
                     <label class="label2">Precio del Billete:</label>
-                    <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required>
+                    <input type="number" id="PrecioBillete" name="PrecioBillete" value="" required min="0">
                     </tr>
                     <br/>
                     <br/>
                     <br/>
                     <tr>
-                    <input type="submit" id="Confirmar" name="Confirmar" value="  Confimar  ">
+                    <input class="myButton3" type="submit" id="Confirmar" name="Confirmar" value="  Confimar  ">
                     </tr>
                     <br/>
                     <br/>

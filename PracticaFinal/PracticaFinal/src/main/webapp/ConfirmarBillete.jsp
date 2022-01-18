@@ -190,9 +190,14 @@
                         <br/>
                         <br/>
                 </table>
-                <input type="submit" value="Consultar Vuelos" class="myButton" name="confirmar">
+                <input type="submit" value="Consultar Vuelos" class="myButton3" name="confirmar">
             </form>
+                        <br/>
+                        <br/>
+                        
+            <button class="myButton3" onclick="location.href = './UserMainMenu.jsp'">Volver</button>
             <%
+                try {
                 //System.out.println(request.getPa);
                 if (request.getParameter("confirmar") != null) {
                     String fechaIDA = request.getParameter("fechaIDA");
@@ -291,18 +296,9 @@
                         }
 
                     }
-                    /*
-                Date fechaVuelta = null;
-                System.out.println(request.getParameter("fechaVUELTA"));
-                if (tipo.equals("ida+vuelta")) fechaVuelta=Date.valueOf(request.getParameter("fechaVUELTA"));
-                Date fechaIda = Date.valueOf(request.getParameter("fechaIDA"));
-                //int numeroPasajeros = Integer.valueOf(request.getParameter("pasajeros"));
-                if (!fechaVuelta.equals("No hay vuelos disponibles")){
-
-                } else {
-                    query = "SELECT VUELO.NUM_ASIENTOS FROM APP.VUELO WHERE VUELO.ORIGEN = '" + origen + "' AND VUELO.DESTINO = '" + destino + "' AND VUELO.FECHA = '" + fechaIda + "'";
-                    System.out.println(query);
-                }*/
+                }
+                }catch (Exception e){
+                    response.sendRedirect("/PracticaFinal/ErrorUsuario.html");
                 }
             %>
         </section>

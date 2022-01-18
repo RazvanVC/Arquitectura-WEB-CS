@@ -127,7 +127,7 @@
                         </td>
                     </tr>
                 </table>
-                <input type="submit" value="Consultar" class="myButton" name="consultar">
+                <input type="submit" value="Consultar" class="myButton3" name="consultar">
             </form>
             <% 
             if (request.getParameter("consultar") != null){
@@ -140,7 +140,6 @@
             }
            
             %>
-
             <br/>
         <button class="myButton3" onclick="location.href = './UserMainMenu.jsp'">Volver</button>
         <br/>

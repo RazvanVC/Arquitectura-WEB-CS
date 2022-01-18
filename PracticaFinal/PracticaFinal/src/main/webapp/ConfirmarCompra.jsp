@@ -95,7 +95,8 @@
                                     </td>
                                 </tr>
                         </table>
-                        <input type="submit" value="Comprar" name="comprar" />
+                        <input class="myButton3" type="submit" value="Comprar" name="comprar" />
+                        <br>
                     </fieldset>
                     <%
                     if (request.getParameter("comprar") != null) {
@@ -398,9 +399,12 @@
                     %>
                 </form>  
             </section>
+                <br/>
+                <br/>
+            <button class="myButton3" onclick="location.href = './UserMainMenu.jsp'">Volver</button>
         </section>
         <br/>
         
-        <button class="myButton" onclick="location.href = './CompraBillete.jsp'">Volver</button>
+        
     </body>
 </html>

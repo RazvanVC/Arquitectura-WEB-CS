@@ -46,7 +46,7 @@
                                   
                     </table>
                     
-                    <input class="center" type="submit" value="Login" name="login"/> 
+                    <input class="myButton3" class="center" type="submit" value="Login" name="login"/> 
                     <br/>
                 </fieldset>
             </form>
