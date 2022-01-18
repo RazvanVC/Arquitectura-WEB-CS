@@ -137,7 +137,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <button class="myButton" onclick="location.href = './v9'">Volver a la página de Administrador</button>
+                            <button class="myButton2" onclick="location.href = './v9'">Volver a la página de Administrador</button>
                         </td>
                     </tr>
                 </table>

@@ -61,8 +61,7 @@
                 }
                 %>
                 <tr class="tr3">
-                    <td class="td3">Numero Viajeros Medio:</td> 
-                    <td class="td3"><%=String.valueOf((Ocupacion/Filas)*100)%>%</td>
+                    <td><h2>Numero Viajeros Medio: <%=String.valueOf((Ocupacion/Filas)*100)%>% </h2></td>
                 </tr>
                 <!--Bucle en cada iteración:
                     X= 0;
@@ -70,8 +69,7 @@
                     Sale bucle
                     X/NumIteraciones-->
                 <tr class="tr3">
-                    <td class="td3">Total Ganancias por vuelo Medio:</td>
-                    <td class="td3"><%=String.valueOf(Ganancia/Filas)%>€</td> 
+                    <td><h2>Total Ganancias por vuelo Medio:<%=String.valueOf(Ganancia/Filas)%>€</h2></td>
                 <!--Bucle en cada iteración:
                     X= 0;
                     X= X+ Query(Ganancias)
@@ -79,14 +77,14 @@
                     X/NumIteraciones-->
                 </tr>
                 <tr class="tr3">
-                    <td class="td3">Total Ganancias Empresa:</td>
-                    <td class="td3"><%=String.valueOf(Ganancia)%>€</td> 
+                    <td><h2>Total Ganancias Empresa:<%=String.valueOf(Ganancia)%>€</h2></td>
                 <!--Bucle en cada iteración:
                     X= 0;
                     X= X+ Query(Ganancia)-->   
                 <tr>
             </table>
             </form>
+            <br/><br/>
             <button class="myButton2" onclick="location.href = './AdminMainMenu.html'">Volver a la página de Administrador</button>
         </section>
     </body>
