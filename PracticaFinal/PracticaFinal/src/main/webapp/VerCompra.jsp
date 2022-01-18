@@ -17,6 +17,11 @@
             <h1> <img src="./img/logo.png"  alt="Logo" width="300" height="300"> </h1>
             <h2>Ver Compra Realizada</h2>
         </header>
+        <br/>
+        <br/>
+        <button class="myButton" onclick="location.href = './UserMainMenu.jsp'">Continuar</button>
+        <br/>
+        <br/>
         <!-- Se repite la seccion entera -->
         <%
             int i = 1;
@@ -117,10 +122,5 @@
                 i++;
             }
         %>
-        
-        
-        <br/>
-        <br/>
-        <button class="myButton" onclick="location.href = './UserMainMenu.jsp'">Continuar</button>
     </body>
 </html>

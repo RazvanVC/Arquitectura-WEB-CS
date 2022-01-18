@@ -158,8 +158,15 @@
                                 session.setAttribute("NombreBillete"+i, nombre);
                                 session.setAttribute("ApellidosBillete"+i, apellido);
                                 session.setAttribute("DNIBillete"+i, dni);
-                                
                                 i++;
+                            }
+                            //RECUPERACION DE TASAS DE ORIGEN Y DESTINO
+                            double tasaIDA = 0.0;
+                            query = "SELECT ORIGEN.TASA FROM APP.ORIGEN WHERE ORIGEN.NOMBRE = '"+origen+"'";
+                            
+                            rs = s.executeQuery(query);
+                            if (rs.next()){
+                                tasaIDA=rs.getDouble("TASA")*pasajeros;
                             }
                             
                             //ACTUALIZACION DE TABLA USUARIOS
@@ -173,6 +180,26 @@
                             query = "UPDATE APP.USUARIOS SET USUARIOS.NUMERO_VIAJES = "+numeroViajes+" WHERE USUARIOS.DNI = '"+session.getAttribute("DNI").toString()+"'";
                             s.executeUpdate(query);
                             
+                            //ACTUALIZACION DE TABLA VUELO
+                            double tasasAeropuertos = 0.0;
+                            int pasajerosExistentes = 0;
+                            double ganancia = 0;
+                            double impuestos = 0.0;
+                            query = "SELECT VUELO.NUM_PASAJEROS, VUELO.GANANCIA, VUELO.TASAS_TOTALES_AEROPUERTOS, VUELO.IMPUESTOS_TOTALES FROM APP.VUELO WHERE VUELO.ID_VUELO = '"+id_vueloIDA+"'";
+                            rs = s.executeQuery(query);
+                            if (rs.next()){
+                                tasasAeropuertos = rs.getDouble("TASAS_TOTALES_AEROPUERTOS");
+                                pasajerosExistentes = rs.getInt("NUM_PASAJEROS");
+                                ganancia = rs.getDouble("GANANCIA");
+                                impuestos = rs.getDouble("IMPUESTOS_TOTALES");
+                            }
+                            tasasAeropuertos += (tasaIDA*pasajeros);
+                            pasajerosExistentes += pasajeros;
+                            ganancia += ((precio_billeteIDA/1.21)-tasaIDA)*pasajeros;
+                            impuestos += (((precio_billeteIDA/1.21)-tasaIDA)*0.21)*pasajeros;
+                            query = "UPDATE APP.VUELO SET VUELO.NUM_PASAJEROS = "+pasajerosExistentes+", VUELO.GANANCIA = " + ganancia + ", VUELO.TASAS_TOTALES_AEROPUERTOS = " + tasasAeropuertos 
+                                    + ", VUELO.IMPUESTOS_TOTALES = " + impuestos + "WHERE VUELO.ID_VUELO = '"+id_vueloIDA+"'";
+                            s.executeUpdate(query);
                             //REDIRECCION A LA SIGUIENTE PANTALLA
                             session.setAttribute("VISA", VISA);
                             response.sendRedirect("/PracticaFinal/VerCompra.jsp");
@@ -292,7 +319,24 @@
                                 
                                 i++;
                             }
-                            System.out.println("FALLO EN LA QUERY DEL ACTUALIZADOR DE DATOS");
+                            
+                            //RECUPERACION DE TASAS DE ORIGEN Y DESTINO
+                            double tasaIDA = 0.0;
+                            query = "SELECT ORIGEN.TASA FROM APP.ORIGEN WHERE ORIGEN.NOMBRE = '"+origen+"'";
+                            
+                            rs = s.executeQuery(query);
+                            if (rs.next()){
+                                tasaIDA=rs.getDouble("TASA")*pasajeros;
+                            }
+                            
+                            double tasaVUELTA = 0.0;
+                            query = "SELECT DESTINO.TASA FROM APP.DESTINO WHERE DESTINO.NOMBRE = '"+destino+"'";
+                            
+                            rs = s.executeQuery(query);
+                            if (rs.next()){
+                                tasaVUELTA=rs.getDouble("TASA")*pasajeros;
+                            }
+                            
                             //ACTUALIZACION DE TABLA USUARIOS
                             query = "SELECT USUARIOS.NUMERO_VIAJES FROM APP.USUARIOS WHERE USUARIOS.DNI = '"+session.getAttribute("DNI").toString()+"'";
                             rs = s.executeQuery(query);
@@ -302,6 +346,48 @@
                                 numeroViajes++;
                             }
                             query = "UPDATE APP.USUARIOS SET USUARIOS.NUMERO_VIAJES = "+numeroViajes+" WHERE USUARIOS.DNI = '"+session.getAttribute("DNI").toString()+"'";
+                            s.executeUpdate(query);
+                            
+                            //ACTUALIZACION DE TABLA VUELO
+                            double tasasAeropuertos = 0.0;
+                            int pasajerosExistentes = 0;
+                            double ganancia = 0;
+                            double impuestos = 0.0;
+                            query = "SELECT VUELO.NUM_PASAJEROS, VUELO.GANANCIA, VUELO.TASAS_TOTALES_AEROPUERTOS, VUELO.IMPUESTOS_TOTALES FROM APP.VUELO WHERE VUELO.ID_VUELO = '"+id_vueloIDA+"'";
+                            rs = s.executeQuery(query);
+                            if (rs.next()){
+                                tasasAeropuertos = rs.getDouble("TASAS_TOTALES_AEROPUERTOS");
+                                pasajerosExistentes = rs.getInt("NUM_PASAJEROS");
+                                ganancia = rs.getDouble("GANANCIA");
+                                impuestos = rs.getDouble("IMPUESTOS_TOTALES");
+                            }
+                            tasasAeropuertos += (tasaIDA*pasajeros);
+                            pasajerosExistentes += pasajeros;
+                            ganancia += ((precio_billeteIDA/1.21)-tasaIDA)*pasajeros;
+                            impuestos += (((precio_billeteIDA/1.21)-tasaIDA)*0.21)*pasajeros;
+                            query = "UPDATE APP.VUELO SET VUELO.NUM_PASAJEROS = "+pasajerosExistentes+", VUELO.GANANCIA = " + ganancia + ", VUELO.TASAS_TOTALES_AEROPUERTOS = " + tasasAeropuertos 
+                                    + ", VUELO.IMPUESTOS_TOTALES = " + impuestos + "WHERE VUELO.ID_VUELO = '"+id_vueloIDA+"'";
+                            s.executeUpdate(query);
+                            
+                            //VUELTA
+                            tasasAeropuertos = 0.0;
+                            pasajerosExistentes = 0;
+                            ganancia = 0;
+                            impuestos = 0.0;
+                            query = "SELECT VUELO.NUM_PASAJEROS, VUELO.GANANCIA, VUELO.TASAS_TOTALES_AEROPUERTOS, VUELO.IMPUESTOS_TOTALES FROM APP.VUELO WHERE VUELO.ID_VUELO = '"+id_vueloVUELTA+"'";
+                            rs = s.executeQuery(query);
+                            if (rs.next()){
+                                tasasAeropuertos = rs.getDouble("TASAS_TOTALES_AEROPUERTOS");
+                                pasajerosExistentes = rs.getInt("NUM_PASAJEROS");
+                                ganancia = rs.getDouble("GANANCIA");
+                                impuestos = rs.getDouble("IMPUESTOS_TOTALES");
+                            }
+                            tasasAeropuertos += (tasaIDA*pasajeros);
+                            pasajerosExistentes += pasajeros;
+                            ganancia += ((precio_billeteIDA/1.21)-tasaIDA)*pasajeros;
+                            impuestos += (((precio_billeteIDA/1.21)-tasaIDA)*0.21)*pasajeros;
+                            query = "UPDATE APP.VUELO SET VUELO.NUM_PASAJEROS = "+pasajerosExistentes+", VUELO.GANANCIA = " + ganancia + ", VUELO.TASAS_TOTALES_AEROPUERTOS = " + tasasAeropuertos 
+                                    + ", VUELO.IMPUESTOS_TOTALES = " + impuestos + "WHERE VUELO.ID_VUELO = '"+id_vueloVUELTA+"'";
                             s.executeUpdate(query);
                             
                             //REDIRECCION A LA SIGUIENTE PANTALLA
