@@ -88,15 +88,17 @@ tr{
     height: 20%;
     background-color: #fffec7;
 }
-
-.tr3{
+.tr4{
     text-align: center;
-    font-weight: 100;
-    font-size: 500px;
-    width: 40%;
-    height: 40%;
+    font-weight: 50;
+    font-size: 10px;
+    width: 20%;
+    height: 20%;
     
 }
+
+
+
 .td2{
     text-align: center;
     font-weight: 50;
@@ -162,6 +164,15 @@ table {
     height: 100%;
     text-align: center;
     margin: 0%;
+}
+.table4{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0%;
+   
 }
 .form{
     text-align: justify;

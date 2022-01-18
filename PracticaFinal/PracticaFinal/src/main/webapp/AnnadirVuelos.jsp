@@ -34,24 +34,21 @@
 
 
         %>
-        <section class="section">
-            <h1> <img src="./img/logo.png" alt="Logo" width="100" height="100"> </h1>
-
-
-
+        <section class="seccion">
+            <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
             <form action="">
-                <table>
-                    <tr>
-                        <td>
+                <table class="table4">
+                    <tr class="tr4">
+                        <td class="td">
                             <input type="radio" id="Ruta" name="tipo" value="ruta" checked onclick="showFieldsTipoVuelo()">
                             <label for="Ruta">Ruta</label>
                         </td>
-                        <td>
+                        <td class ="td">
                             <input type="radio" id="Vuelo" name="tipo" value="vuelo" onclick="showFieldsTipoVuelo()">
                             <label for="Vuelo">Vuelo</label>
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="tr4">
                         <%                            rs = s.executeQuery("SELECT ORIGEN.NOMBRE FROM APP.ORIGEN");
                         %>
                         <td>
@@ -90,7 +87,7 @@
                         </td>
                     </tr>
 
-                    <tr>
+                    <tr class="tr4">
                         <td>
                             <label for="FechaFinal" id="lblFechaInicioT">Fecha inicio temporalidad</label>
                             <label for="FechaFinal" id="lblFechaInicioV" hidden="">Fecha vuelo</label>
@@ -124,24 +121,20 @@
                             <input type="number" id="PrecioBillete" name="PrecioBillete" value="100" hidden>
                         </td>
                     </tr> -->
-                    <tr>
-                        <td>
+                    <tr clas=tr2>
+                        <td class="td2">
                             <label for="PrecioBillete" id="lblPrecio" >Precio: </label>
                             <input type="number" id="PrecioBillete" name="PrecioBillete" value="100" >
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="tr4">
                         <td>
                             <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <button class="myButton2" onclick="location.href = './v9'">Volver a la página de Administrador</button>
-                        </td>
-                    </tr>
                 </table>
-            </form>
+                <button class="myButton2" onclick="location.href = './v9'">Volver a la página de Administrador</button>
+            </form> 
         </section> 
 
         <%
