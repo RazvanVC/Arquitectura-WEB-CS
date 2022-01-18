@@ -137,16 +137,11 @@
                             <input type="number" id="PrecioBillete" name="PrecioBillete" value="100" >
                         </td>
                     </tr>
-                    <tr class="tr4">
-                        <td class="td3"> </td>
-                        <td class="td3">
-                            <input type="submit" id="Confirmar" name="Confirmar" value="Confimar">
-                        </td>
-                    </tr>
                 </table>
+                            <input class="myButton3" type="submit" id="Confirmar" name="Confirmar" value="Confimar">
                  <br/> 
                  <br/>
-                <button class="myButton2" onclick="location.href = './v9'">Volver a la página de Administrador</button>
+                <button class="myButton3" onclick="location.href = './AdminMainMenu.html'">Volver a la página de Administrador</button>
             </form> 
         </section> 
 
