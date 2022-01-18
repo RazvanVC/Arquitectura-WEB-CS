@@ -40,14 +40,15 @@
             c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app");
             s = c.createStatement();
         %>
+        <header class="encabezado">
+            <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
+            <h2>Confirmación del Billete</h2>
+        </header>
         <section class="seccion">
-            <h1> <img src="./resources/images/logo.png" alt="Logo" width="100" height="100"> </h1>
-            <h1>Compra Billete</h1>
+            
             <!-- Tabla que continene 7 filas. La primera son dos comboboxes la segunda son dos radio buttons, la tercera dos capos de fecha, y la quinta un boton-->
             <form action="">
-                <table>
-                    <tr>
-                        <td>
+            <br/>
                             <%
                                 //origen = session.getAttribute("origen").toString();
                                 //destino = session.getAttribute("destino").toString();
@@ -99,8 +100,7 @@
                                     }
                                 %>
                             </select>
-                        </td>
-                        <td>
+
                             <%
                                 s = c.createStatement();
                                 //origen = session.getAttribute("origen").toString();
@@ -179,23 +179,18 @@
                                     }
                                 %>
                             </select>
-                        </td>
+
                         <%
                             }
                         %>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label for="tipo">Pasajeros</label>
-                            <input type="number" name="pasajeros" requiered value="1">
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <input type="submit" value="Consultar Vuelos" class="myButton" name="confirmar">
-                        </td>
-                    </tr>
+                        <br/>
+                        <br/>
+                        <label for="tipo">Pasajeros</label>
+                        <input type="number" name="pasajeros" requiered value="1">
+                        <br/>
+                        <br/>
                 </table>
+                <input type="submit" value="Consultar Vuelos" class="myButton" name="confirmar">
             </form>
             <%
                 //System.out.println(request.getPa);

@@ -29,13 +29,14 @@
         <% 
         c = DriverManager.getConnection("jdbc:derby://localhost:1527/sample", "app", "app"); 
         %>
-        <section class="seccion">
-            <header class="encabezado">
+
+        <header class="encabezado">
                 <h1> <img src="./img/logo.png" alt="Logo" width="300" height="300"> </h1>
 
                 <h2>COMPRA DE BILLETES</h2>
-            </header>
+        </header>
 
+        <section class="seccion">    
             <!-- Tabla que continene 7 filas. La primera son dos comboboxes la segunda son dos radio buttons, la tercera dos capos de fecha, y la quinta un boton-->
             <form action="">
                 <table class="table">
@@ -139,11 +140,12 @@
             }
            
             %>
-        </section>
-        <br/>
+
+            <br/>
         <button class="myButton3" onclick="location.href = './UserMainMenu.jsp'">Volver</button>
         <br/>
-        <br/>
+        </section>
         
+
     </body>
 </html>

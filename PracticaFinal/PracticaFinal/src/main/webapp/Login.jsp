@@ -25,18 +25,29 @@
     </head>
     <body>
         <header class="encabezado">
-            <h1><img src="./img/logo.png" alt="Logo" width="100" height="100"></h1>
+            <h1><img src="./img/logo.png" alt="Logo" width="300" height="300"></h1>
         </header>
         
         <section class="seccion">
             <form action="">
                 <fieldset>
                     <legend>Login</legend>
-                    <label for="username">Email:</label>
-                    <input type="email" name="username" id="username" required="required" />
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" required="required" />
-                    <input type="submit" value="Login" name="login"/>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="username">Email:</label>
+                                <input type="email" name="username" id="username" required="required" />
+                            </td>
+
+                            <td>
+                                <label for="password">Password:</label>
+                                <input type="password" name="password" id="password" required="required" />
+                            </td>
+                                  
+                    </table>
+                    
+                    <input class="center" type="submit" value="Login" name="login"/> 
+                    <br/>
                 </fieldset>
             </form>
             <br/>

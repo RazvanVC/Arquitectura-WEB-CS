@@ -43,8 +43,11 @@
                 <h2> Puedes buscar los datos de un vuelo en especifico aquí abajo: </h2>
                 <label for="id_vuelo">Id Vuelo:</label>
                 <input type="text" name="id_vuelo" id="id_vuelo"/>
+                <br/>
+                <br/>
                 <input type="submit" value="Buscar"/>
             </form>
+            <br/><br/>
             <h2> Datos sobre toda la aerolinea:</h2>
             <table class="table2">
                 <%
@@ -57,27 +60,27 @@
                     Ganancia=(Ganancia + GananciaVuelo);
                 }
                 %>
-                <tr class="tr2">
-                    <td class="td2">Numero Viajeros Medio:</td> 
-                    <td class="td2"><%=String.valueOf((Ocupacion/Filas)*100)%>%</td>
+                <tr class="tr3">
+                    <td class="td3">Numero Viajeros Medio:</td> 
+                    <td class="td3"><%=String.valueOf((Ocupacion/Filas)*100)%>%</td>
                 </tr>
                 <!--Bucle en cada iteración:
                     X= 0;
                     X= X+ Query(NumViajerosBuelo/NumAsientos)
                     Sale bucle
                     X/NumIteraciones-->
-                <tr class="tr2">
-                    <td class="td2">Total Ganancias por vuelo Medio:</td>
-                    <td class="td2"><%=String.valueOf(Ganancia/Filas)%>€</td> 
+                <tr class="tr3">
+                    <td class="td3">Total Ganancias por vuelo Medio:</td>
+                    <td class="td3"><%=String.valueOf(Ganancia/Filas)%>€</td> 
                 <!--Bucle en cada iteración:
                     X= 0;
                     X= X+ Query(Ganancias)
                     Sale bucle
                     X/NumIteraciones-->
                 </tr>
-                <tr class="tr2">
-                    <td class="td2">Total Ganancias Empresa:</td>
-                    <td class="td2"><%=String.valueOf(Ganancia)%>€</td> 
+                <tr class="tr3">
+                    <td class="td3">Total Ganancias Empresa:</td>
+                    <td class="td3"><%=String.valueOf(Ganancia)%>€</td> 
                 <!--Bucle en cada iteración:
                     X= 0;
                     X= X+ Query(Ganancia)-->   
